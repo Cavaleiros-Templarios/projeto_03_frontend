@@ -1,10 +1,11 @@
-import { BrowserRouter} from "react-router-dom"
+import { BrowserRouter, Route, Routes} from "react-router-dom"
 import { AuthProvider } from "./contexts/AuthContext"
 import { ToastContainer } from "react-toastify"
 
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
 
 
 function App() {
@@ -16,11 +17,11 @@ function App() {
         <ToastContainer />
         <BrowserRouter>
           <Navbar />
-          {/* <div className="min-h-[80vh]">
+          <div className="min-h-[80vh]">
             <Routes>
-              <Route path="/" element={<Login />} />  
+              {/* <Route path="/" element={<Login />} />   */}
               <Route path="/home" element={<Home />} />  
-              <Route path="/cadastro" element={<Cadastro />} />  
+              {/* <Route path="/cadastro" element={<Cadastro />} />  
               <Route path="/login" element={<Login />} /> 
               <Route path="/clientes" element={<ListaClientes />} /> 
               <Route path="/cadastrarcliente" element={<FormCliente />} />
@@ -30,9 +31,9 @@ function App() {
               <Route path="/cadastraroportunidade" element={<FormOportunidade />} />
               <Route path="/editaroportunidade/:id" element={<FormOportunidade />} />
               <Route path="/deletaroportunidade/:id" element={<DeletarOportunidade />} />
-              <Route path="/perfil" element={<Perfil />} />
+              <Route path="/perfil" element={<Perfil />} /> */}
             </Routes>
-          </div> */}
+          </div>
           <Footer />
         </BrowserRouter>
     </AuthProvider>
