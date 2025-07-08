@@ -3,6 +3,8 @@ import { AuthProvider } from "./contexts/AuthContext"
 import { ToastContainer } from "react-toastify"
 
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
 
 
 function App() {
@@ -13,8 +15,8 @@ function App() {
     <AuthProvider>
         <ToastContainer />
         <BrowserRouter>
-          {/* <Navbar />
-          <div className="min-h-[80vh]">
+          <Navbar />
+          {/* <div className="min-h-[80vh]">
             <Routes>
               <Route path="/" element={<Login />} />  
               <Route path="/home" element={<Home />} />  
@@ -30,8 +32,8 @@ function App() {
               <Route path="/deletaroportunidade/:id" element={<DeletarOportunidade />} />
               <Route path="/perfil" element={<Perfil />} />
             </Routes>
-          </div>
-          <Footer /> */}
+          </div> */}
+          <Footer />
         </BrowserRouter>
     </AuthProvider>
     </>

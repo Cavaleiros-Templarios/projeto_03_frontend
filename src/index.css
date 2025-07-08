@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+:root {
+  /* === CORES PRINCIPAIS === */
+  --cor-primaria: #006CFF; /* Azul - usada em botões, destaques e elementos interativos */
+  --cor-primaria-hover: #0e2d5d; /* Azul mais escuro para hover em botões e links */
+  --cor-primaria-fundo: #f8f4f4; /*  Cor para o background da página */
+
+  --cor-secundaria: #1e9fff; /* Azul um pouco mais claro (exemplo) - pode ser usada para fundo ou header */
+  --cor-secundaria-hover: #0853c5; /* Hover da cor secundária */
+
+  /* === TEXTO === */
+
+  --cor-texto-principal: #1f1f1f; /* Cor padrão para textos - quase preto */
+  --cor-texto-claro: #ffffff; /* Usada em textos sobre fundo escuro */
+  --cor-texto-secundario: #6b7280; /* Cinza - para textos auxiliares ou placeholders */
+
+  /* === FUNDOS === */
+
+  --cor-fundo-claro: #f9f9f9; /* Fundo geral da página */
+  --cor-fundo-escuro: #1a1a1a; /* Para rodapé ou seções destacadas */
+  --cor-fundo-card: #ffffff; /* Para cartões, boxes e containers */
+
+  /* === BORDAS E DIVISORES === */
+
+  --cor-borda: #dcdcdc; /* Cinza claro - usado em bordas e divisores */
+  --cor-sombra: rgba(0, 0, 0, 0.1); /* Sombra suave para elevação */
+
+  /* === FEEDBACK VISUAL === */
+
+  --cor-sucesso: #4CAF50; /* Verde - confirmações e ações bem-sucedidas */
+  --cor-erro: #f44336; /* Vermelho - mensagens de erro */
+  --cor-aviso: #FFC107; /* Amarelo - alertas e avisos */
+}
+
+body {
+  background-color: var(--cor-primaria-fundo);
+}
