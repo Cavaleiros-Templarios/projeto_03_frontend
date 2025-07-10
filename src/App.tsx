@@ -8,6 +8,9 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Login from "./pages/login/Login";
+import ListaClientes from "./components/clientes/listaclientes/ListaClientes";
+import FormCliente from "./components/clientes/formcliente/FormCliente";
+import DeletarCliente from "./components/clientes/deletarcliente/DeletarCliente";
 
 
 function App() {
@@ -25,11 +28,11 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/login" element={<Login />} />
-              {/*
-              <Route path="/clientes" element={<ListaClientes />} /> 
+              <Route path="/clientes" element={<ListaClientes />} />
               <Route path="/cadastrarcliente" element={<FormCliente />} />
-              <Route path="/editarcliente/:id" element={<FormCliente />} /> 
+              <Route path="/editarcliente/:id" element={<FormCliente />} />
               <Route path="/deletarcliente/:id" element={<DeletarCliente />} />
+              {/* 
               <Route path="/oportunidades" element={<ListaOportunidades />} />
               <Route path="/cadastraroportunidade" element={<FormOportunidade />} />
               <Route path="/editaroportunidade/:id" element={<FormOportunidade />} />
