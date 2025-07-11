@@ -35,4 +35,7 @@
 
 body {
   background-color: var(--cor-primaria-fundo);
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }

@@ -47,8 +47,8 @@ function Navbar() {
                     <Link to="/clientes" className="hover:text-blue-950 font-bold transition-colors duration-300">
                         Clientes
                     </Link>
-                    <Link to="/estatisticas" className="hover:text-blue-950 font-bold transition-colors duration-300">
-                        Estatísticas
+                    <Link to="/planos" className="hover:text-blue-950 font-bold transition-colors duration-300">
+                        Planos
                     </Link>
                     <Link to="/sobre" className="hover:text-blue-950 font-bold transition-colors duration-300">
                         Sobre
