@@ -11,6 +11,7 @@ import Login from "./pages/login/Login";
 import ListaClientes from "./components/clientes/listaclientes/ListaClientes";
 import FormCliente from "./components/clientes/formcliente/FormCliente";
 import DeletarCliente from "./components/clientes/deletarcliente/DeletarCliente";
+import Estatisticas from "./pages/estatisticas/Estatisticas";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/cadastro" element={<Cadastro />} />
               <Route path="/login" element={<Login />} />
               <Route path="/clientes" element={<ListaClientes />} />
+              <Route path="/estatisticas" element={<Estatisticas />} />
               <Route path="/cadastrarcliente" element={<FormCliente />} />
               <Route path="/editarcliente/:id" element={<FormCliente />} />
               <Route path="/deletarcliente/:id" element={<DeletarCliente />} />
