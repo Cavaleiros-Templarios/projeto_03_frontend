@@ -45,8 +45,6 @@ function Cadastro() {
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
-    setIsLoading(true)
-
     if(confirmaSenha === usuario.senha && usuario.senha.length >= 8){
       try {
 
