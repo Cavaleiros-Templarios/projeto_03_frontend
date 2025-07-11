@@ -6,22 +6,11 @@ import { atualizar, buscar, cadastrar } from "../../../services/Service"
 import { RotatingLines } from "react-loader-spinner"
 import { ToastAlerta } from "../../../utils/ToastAlerta"
 
-// Interface para as props do componente
 interface FormClienteProps {
-    onSuccess?: () => void;
-    onCancel?: () => void;
-    clienteParaEditar?: Cliente | null;
-    isModal?: boolean;
+    onSuccess?: () => void; // Add onSuccess prop
 }
 
-function FormCliente({ 
-    onSuccess, 
-    onCancel, 
-    clienteParaEditar = null, 
-    isModal = false 
-}: FormClienteProps) {
-
-    console.log('FormCliente renderizado com props:', { onSuccess: !!onSuccess, onCancel: !!onCancel, isModal });
+function FormCliente({ onSuccess }: FormClienteProps) {
 
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -92,114 +81,131 @@ function FormCliente({
                     headers: { Authorization: token }
                 })
                 ToastAlerta("O Cliente foi atualizado com sucesso!", 'sucesso')
-            } else {
-                console.log('Cadastrando novo cliente');
+                
+                // Call onSuccess callback after successful update
+                if (onSuccess) {
+                    onSuccess();
+                }
+            } catch (error: any) {
+                if(error.toString().includes("401")){
+                    handleLogout()
+                } else {
+                    ToastAlerta("Erro ao atualizar o cliente!", 'erro')
+                    console.error(error)
+                }
+            }
+        } else {
+            try {
                 await cadastrar("/clientes", cliente, setCliente, {
                     headers: { Authorization: token }
                 })
                 ToastAlerta("O Cliente foi cadastrado com sucesso!", 'sucesso')
+                
+                // Call onSuccess callback after successful registration
+                if (onSuccess) {
+                    onSuccess();
+                }
+            } catch (error: any) {
+                if(error.toString().includes("401")){
+                    handleLogout()
+                } else {
+                    ToastAlerta("Erro ao cadastrar o cliente!", 'erro')
+                    console.error(error)
+                }
             }
-
-            console.log('Operação bem-sucedida. isModal:', isModal, 'onSuccess:', !!onSuccess);
-
-            // Se for modal, sempre chama onSuccess
-            if (isModal && onSuccess) {
-                console.log('Chamando onSuccess');
-                onSuccess();
-                return; // Sai da função para não executar mais nada
-            }
-            
-            // Se não for modal, navega normalmente
-            if (!isModal) {
-                console.log('Navegando para /clientes');
-                navigate("/clientes");
-            }
-
-        } catch (error: any) {
-            console.error('Erro ao salvar cliente:', error);
-            if (error.toString().includes("401")) {
-                handleLogout()
-            } else {
-                ToastAlerta(`Erro ao ${isEdicao ? 'atualizar' : 'cadastrar'} o cliente!`, 'erro')
-            }
-        } finally {
-            setIsLoading(false)
         }
+
+        setIsLoading(false)
+        retornar()
     }
 
-    function handleCancelar() {
-        console.log('Cancelando. isModal:', isModal, 'onCancel:', !!onCancel);
-        if (isModal && onCancel) {
-            console.log('Chamando onCancel');
-            onCancel();
-        } else if (!isModal) {
-            console.log('Navegando para /clientes');
-            navigate("/clientes");
-        }
+    function retornar(){
+        navigate("/clientes")
     }
 
     return (
-        <div className="container flex flex-col items-center justify-center mx-auto">
-            <h1 className="text-4xl text-center my-8">
-                {isEdicao ? "Editar Cliente" : "Cadastrar Cliente"}
-            </h1>
+        <div className="w-full max-w-md mx-auto">
+            {/* Título removido quando usado no modal */}
+            {!onSuccess && (
+                <div className="text-center mb-8">
+                    <h1 className="text-3xl font-bold text-gray-800 mb-2">
+                        {id === undefined ? "Cadastrar Cliente" : "Editar Cliente"}
+                    </h1>
+                    <div className="w-16 h-1 bg-[#005de3] mx-auto rounded-full"></div>
+                </div>
+            )}
 
-            <form className="w-1/2 flex flex-col gap-4"
-                onSubmit={gerarNovoCliente}
-            >
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="nome">Nome do Cliente</label>
+            <form className="space-y-6" onSubmit={gerarNovoCliente}>
+                {/* Campo Nome */}
+                <div className="space-y-2">
+                    <label 
+                        htmlFor="nome" 
+                        className="block text-sm font-semibold text-gray-700"
+                    >
+                        Nome do Cliente
+                    </label>
                     <input
                         type="text"
-                        placeholder="Digite o nome do cliente"
+                        placeholder="Digite o nome completo"
                         name='nome'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg 
+                                  focus:border-[#005de3] focus:ring-2 focus:ring-[#005de3] focus:ring-opacity-20
+                                  transition-all duration-200 outline-none
+                                  placeholder-gray-400 text-gray-700"
                         value={cliente.nome || ""}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         required
                     />
                 </div>
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="email">E-mail do Cliente</label>
+
+                {/* Campo Email */}
+                <div className="space-y-2">
+                    <label 
+                        htmlFor="email" 
+                        className="block text-sm font-semibold text-gray-700"
+                    >
+                        E-mail do Cliente
+                    </label>
                     <input
                         type="email"
-                        placeholder="Digite o e-mail do cliente"
+                        placeholder="Digite o e-mail"
                         name='email'
-                        className="border-2 border-slate-700 rounded p-2"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg 
+                                  focus:border-[#005de3] focus:ring-2 focus:ring-[#005de3] focus:ring-opacity-20
+                                  transition-all duration-200 outline-none
+                                  placeholder-gray-400 text-gray-700"
                         value={cliente.email || ""}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         required
                     />
                 </div>
-                
-                <div className="flex gap-4 justify-center">
-                    <button
-                        className="rounded text-slate-100 bg-indigo-400 
-                                   hover:bg-indigo-800 w-1/2 py-2 flex justify-center"
-                        type="submit"
-                        disabled={isLoading}>
-                        {
-                            isLoading ? (
-                                <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} />
-                            ) : (
-                                <span>{isEdicao ? "Atualizar" : "Cadastrar"}</span>
-                            )
-                        }
-                    </button>
 
-                    {/* Botão de cancelar - aparece no modal ou quando onCancel é fornecido */}
-                    {(isModal || onCancel) && (
-                        <button
-                            type="button"
-                            onClick={handleCancelar}
-                            className="rounded text-slate-700 bg-gray-300 
-                                       hover:bg-gray-400 w-1/2 py-2"
-                            disabled={isLoading}
-                        >
-                            Cancelar
-                        </button>
+                {/* Botão Submit */}
+                <button
+                    className="w-full bg-[#005de3] text-white py-3 px-6 rounded-lg font-semibold
+                              hover:bg-[#004bb8] hover:shadow-lg transform hover:scale-[1.02]
+                              transition-all duration-200 ease-in-out
+                              focus:outline-none focus:ring-2 focus:ring-[#005de3] focus:ring-opacity-50
+                              disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
+                              flex items-center justify-center min-h-[48px]"
+                    type="submit"
+                    disabled={isLoading}
+                >
+                    {isLoading ? (
+                        <div className="flex items-center space-x-2">
+                            <RotatingLines 
+                                strokeColor="white"
+                                strokeWidth="5"
+                                animationDuration="0.75"
+                                width="24"
+                                visible={true}
+                            /> 
+                            <span>Processando...</span>
+                        </div>
+                    ) : (
+                        <span>{id === undefined ? "Cadastrar Cliente" : "Atualizar Cliente"}</span>
                     )}
-                </div>
+                </button>
             </form>
         </div>
     );
