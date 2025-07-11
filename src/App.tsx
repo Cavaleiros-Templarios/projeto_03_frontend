@@ -11,8 +11,10 @@ import Login from "./pages/login/Login";
 import ListaClientes from "./components/clientes/listaclientes/ListaClientes";
 import FormCliente from "./components/clientes/formcliente/FormCliente";
 import DeletarCliente from "./components/clientes/deletarcliente/DeletarCliente";
-import Planos from "./pages/planos/Planos";
-
+import ListaOportunidades from "./components/oportunidades/listaoportunidades/ListaOportunidades";
+import FormOportunidade from "./components/oportunidades/formoportunidade/FormOportunidade";
+import DeletarOportunidade from "./components/oportunidades/deletaroportunidade/DeletarOpotunidade";
+import Sobre from "./pages/sobre/Sobre";
 
 function App() {
   
@@ -34,12 +36,12 @@ function App() {
               <Route path="/cadastrarcliente" element={<FormCliente />} />
               <Route path="/editarcliente/:id" element={<FormCliente />} />
               <Route path="/deletarcliente/:id" element={<DeletarCliente />} />
-              {/* 
               <Route path="/oportunidades" element={<ListaOportunidades />} />
               <Route path="/cadastraroportunidade" element={<FormOportunidade />} />
               <Route path="/editaroportunidade/:id" element={<FormOportunidade />} />
               <Route path="/deletaroportunidade/:id" element={<DeletarOportunidade />} />
-              <Route path="/perfil" element={<Perfil />} /> */}
+              <Route path="/sobre" element={<Sobre />} />
+              {/* <Route path="/perfil" element={<Perfil />} /> */}
             </Routes>
           </div>
           <Footer />
