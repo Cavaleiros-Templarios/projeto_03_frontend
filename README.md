@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# Kavio CRM - Sistema de Gestão de Relacionamento com o Cliente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<br />
 
-Currently, two official plugins are available:
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/5c30c61a-ec3b-46e7-ad3d-cf8c4d997a22" alt="Logo" width="300" height="300" />
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<br />
 
-## Expanding the ESLint configuration
+## 📌 Descrição
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+O **Kavio CRM - Front-End** é a interface visual do sistema de gerenciamento de relacionamento com o cliente, desenvolvido com foco em **usabilidade, responsividade** e **experiência do usuário**. Esta aplicação consome a API REST desenvolvida na versão back-end para oferecer uma navegação completa e intuitiva dos dados de clientes e oportunidades.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🚀 Sobre este Sistema
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+A interface do **Kavio CRM** foi construída utilizando tecnologias modernas de front-end para garantir uma aplicação dinâmica, leve e funcional. Ela se comunica com os endpoints do sistema back-end para exibir, cadastrar, editar e excluir dados de forma fluida.
+
+### Principais Funcionalidades
+
+1. **Tela de Login** com autenticação integrada ao backend
+2. **Listagem de Clientes e Oportunidades**
+3. **Formulários de Cadastro e Edição (CRUD completo)**
+4. **Busca e filtros por nome, ID e outros campos**
+5. **Relacionamento visual entre Clientes e suas Oportunidades**
+6. **Responsividade total para uso em dispositivos móveis**
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+| Tecnologia                 | Descrição                                                                 |
+|----------------------------|---------------------------------------------------------------------------|
+| **React**                  | Biblioteca JavaScript para construção de interfaces interativas           |
+| **TypeScript**             | Superset do JavaScript com tipagem estática para maior segurança no código|
+| **Vite**                   | Ferramenta moderna para bundling e ambiente de desenvolvimento rápido     |
+| **Tailwind CSS**           | Framework utilitário para estilização rápida e responsiva                 |
+| **Figma**                  | Plataforma para design de interface e identidade visual                   |
+| **Visual Studio Code**     | Editor de código-fonte utilizado no desenvolvimento                       |
+| **Git & GitHub**           | Versionamento de código e colaboração em equipe                           |
+
+---
+
+## 🧪 Configuração e Execução
+
+1. Clone o repositório do Projeto **Kavio CRM**:
+
+```bash
+git clone https://github.com/seu-usuario/kavio-crm](https://github.com/Cavaleiros-Templarios/projeto_03_backend.git)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Abra o Eclipse/STS** e selecione a pasta do _Workspace_ onde você clonou o repositório do projeto
+3. No menu superior do Eclipse/STS, clique na opção: **File 🡲 Import...**
+4. Selecione: **General 🡲 Existing Projects into Workspace**
+5. Clique em **Browse...**, selecione a pasta do projeto e clique em **Finish**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📬 Contato
+
+Desenvolvido por:
+
+- [**Wesley Lima**](https://github.com/Wezzlim)
+- [**Alex Ikezili**](https://github.com/alexikezili)
+- [**Gustavo Brassaroto Lira**](https://github.com/Brassaroto)
+- [**Cristiano Forner**](https://github.com/cristianoforner)
+- [**Fabricio Vicente Soares**](https://github.com/Fabriciovics)
+- [**Marcos Meneses**](https://github.com/MarcosvMeneses)
+- [**Pedro Henrique**](https://github.com/phccoelho)
+- [**Thiago Tasseli**](https://github.com/tasselii)
+
+_Fique à vontade para contribuir, sugerir melhorias ou relatar bugs!_ 🚀
