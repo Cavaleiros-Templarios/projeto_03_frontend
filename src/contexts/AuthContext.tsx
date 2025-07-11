@@ -41,7 +41,7 @@ export function AuthProvider({ children }: AuthProviderProps){
             console.error(error)
         }
 
-        setIsLoading(true)
+        setIsLoading(false)
     }
 
     function handleLogout(){

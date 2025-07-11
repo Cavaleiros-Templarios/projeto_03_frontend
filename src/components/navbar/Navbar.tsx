@@ -1,6 +1,8 @@
 import { SignOut, User as UserIcon, List } from "@phosphor-icons/react";
-import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState, type ReactNode } from 'react';
+import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -9,7 +11,20 @@ function Navbar() {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    return (
+    const navigate = useNavigate()
+
+    const { usuario, handleLogout } = useContext(AuthContext)
+
+    function logout(){
+        handleLogout(),
+        ToastAlerta("O usuário foi desconectado com sucesso!", 'info')
+        navigate("/")
+    }
+
+    let component: ReactNode
+
+    if (usuario.token !== "") {
+        component = (
         <div className="w-full py-4 bg-white/95  shadow-md">
             <div className="container flex flex-wrap items-center justify-between mx-auto px-4">
                 <Link to="/home" className="flex items-center">
@@ -41,8 +56,8 @@ function Navbar() {
                     <Link to="/perfil" className="hover:text-blue-950 font-bold transition-colors duration-300">
                         <UserIcon size={24} />
                     </Link>
-                    <Link to="/home " className="hover:text-blue-950 font-bold transition-colors duration-300">
-                        <SignOut size={24} />
+                    <Link to="" className="hover:text-blue-950 font-bold transition-colors duration-300">
+                        <SignOut size={24} onClick={logout}/>
                     </Link>
                 </div>
             </div>
@@ -65,14 +80,21 @@ function Navbar() {
                         <Link to="/perfil" className="block py-2 hover:text-green-900 transition-colors duration-300" onClick={toggleMenu}>
                              Perfil
                         </Link>
-                        <Link to="/home " className="block py-2 hover:text-green-900 transition-colors duration-300" onClick={toggleMenu}>
+                        <Link to="" className="block py-2 hover:text-green-900 transition-colors duration-300" onClick={toggleMenu}>
                              Sair
                         </Link>
                     </div>
                 </div>
             )}
         </div>
-    );
+        )
+    }
+
+    return (
+        <>
+            { component }
+        </>
+    )
 }
 
-export default Navbar;
+export default Navbar
