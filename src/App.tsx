@@ -14,7 +14,7 @@ import DeletarCliente from "./components/clientes/deletarcliente/DeletarCliente"
 import ListaOportunidades from "./components/oportunidades/listaoportunidades/ListaOportunidades";
 import FormOportunidade from "./components/oportunidades/formoportunidade/FormOportunidade";
 import DeletarOportunidade from "./components/oportunidades/deletaroportunidade/DeletarOpotunidade";
-
+import Sobre from "./pages/sobre/Sobre";
 
 function App() {
   
@@ -39,6 +39,7 @@ function App() {
               <Route path="/cadastraroportunidade" element={<FormOportunidade />} />
               <Route path="/editaroportunidade/:id" element={<FormOportunidade />} />
               <Route path="/deletaroportunidade/:id" element={<DeletarOportunidade />} />
+              <Route path="/sobre" element={<Sobre />} />
               {/* <Route path="/perfil" element={<Perfil />} /> */}
             </Routes>
           </div>
