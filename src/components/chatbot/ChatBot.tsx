@@ -13,32 +13,40 @@ export default function ChatBot() {
   const [size, setSize] = useState({ width: 340, height: 380 });
   const [isResizing, setIsResizing] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // Novo estado para controlar o carregamento
-  
+
   const chatRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const startPos = useRef({ x: 0, y: 0 });
   const startSize = useRef({ width: 0, height: 0 });
 
-  // Função para rolar para o final do chat
+  // Pre-defined questions
+  const predefinedQuestions = [
+    "O que é o Kavio CRM?",
+    "Como posso ver os planos?",
+    "Quais são os principais recursos?",
+    "Como entro em contato com o suporte?"
+  ];
+
+  // Function to scroll to the bottom of the chat
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // useEffect para rolar automaticamente quando novas mensagens ou o estado de carregamento mudam
+  // useEffect to auto-scroll when new messages or loading state change
   useEffect(() => {
     scrollToBottom();
-  }, [messages, isLoading]); // Adicionado isLoading aqui para rolar quando o "digitando..." aparece/desaparece
+  }, [messages, isLoading]);
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return; // Impede envios múltiplos e mensagens vazias
+  const sendMessage = async (messageContent: string = input) => {
+    if (!messageContent.trim() || isLoading) return;
 
-    const userMsg: Message = { role: 'user', content: input };
+    const userMsg: Message = { role: 'user', content: messageContent };
     setMessages((prev) => [...prev, userMsg]);
     setInput('');
-    setIsLoading(true); // Inicia o carregamento
+    setIsLoading(true);
 
     try {
-      const reply = await sendMessageToChatbot(input);
+      const reply = await sendMessageToChatbot(messageContent);
       const botMsg: Message = { role: 'assistant', content: reply };
       setMessages((prev) => [...prev, botMsg]);
     } catch (error) {
@@ -46,8 +54,12 @@ export default function ChatBot() {
       const errorMsg: Message = { role: 'assistant', content: 'Desculpe, houve um erro ao processar sua mensagem.' };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {
-      setIsLoading(false); // Finaliza o carregamento, mesmo em caso de erro
+      setIsLoading(false);
     }
+  };
+
+  const handlePredefinedQuestionClick = (question: string) => {
+    sendMessage(question); // Send the pre-defined question
   };
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
@@ -63,7 +75,6 @@ export default function ChatBot() {
     const deltaX = e.clientX - startPos.current.x;
     const deltaY = e.clientY - startPos.current.y;
 
-    // Calcular novo tamanho com limites mínimos e máximos
     const newWidth = Math.max(340, Math.min(500, startSize.current.width - deltaX));
     const newHeight = Math.max(380, Math.min(540, startSize.current.height - deltaY));
 
@@ -74,7 +85,6 @@ export default function ChatBot() {
     setIsResizing(false);
   }, []);
 
-  // useEffect para event listeners globais de redimensionamento
   useEffect(() => {
     if (isResizing) {
       document.addEventListener('mousemove', handleMouseMove);
@@ -94,20 +104,18 @@ export default function ChatBot() {
   return (
     <>
       <div className="fixed bottom-4 right-4 z-50 font-sans">
-        <div 
+        <div
           ref={chatRef}
           className={`bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 relative transition-all duration-300 ease-in-out ${
             !open ? 'animate-pulse-wave' : ''
           }`}
-          style={{ 
-            width: open ? size.width : 80, 
+          style={{
+            width: open ? size.width : 80,
             height: open ? size.height : 80,
-            // Usar margin para "empurrar" o elemento para a esquerda e para cima conforme ele cresce
             marginLeft: open ? -(size.width - 340) : 0,
             marginTop: open ? -(size.height - 380) : 0
           }}
         >
-          {/* Handle de redimensionamento invisível no canto superior esquerdo - só aparece quando o chat está aberto */}
           {open && (
             <div
               className="absolute top-0 left-0 w-4 h-4 cursor-nw-resize bg-transparent z-10"
@@ -122,15 +130,34 @@ export default function ChatBot() {
             }`}
             onClick={() => setOpen(!open)}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-            </svg>
+            {/* Robot Image Icon */}
+            <img
+              src="https://ik.imagekit.io/dmzx7is6a/image-removebg-preview%20(3).png?updatedAt=1752247690323"
+              alt="Robot Icon"
+              className="h-8 w-8" // Adjust size as needed
+            />
             {open && <span>Kavio Assistente</span>}
           </div>
 
           {open && (
             <div className="flex flex-col bg-gray-50" style={{ height: size.height - 60 }}>
               <div className="flex-1 p-4 overflow-y-auto space-y-3 text-sm scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                {/* Pre-defined questions displayed as clickable buttons */}
+                {messages.length === 0 && ( // Only show if no messages exchanged yet
+                  <div className="flex flex-col gap-2 mb-4">
+                    <p className="text-gray-600 text-center">Perguntas Frequentes:</p>
+                    {predefinedQuestions.map((question, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handlePredefinedQuestionClick(question)}
+                        className="bg-blue-100 text-blue-800 border border-blue-200 px-3 py-2 rounded-lg text-left hover:bg-blue-200 transition-colors duration-200 text-sm"
+                      >
+                        {question}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 {messages.map((m, i) => (
                   <div
                     key={i}
@@ -146,7 +173,6 @@ export default function ChatBot() {
                     </div>
                   </div>
                 ))}
-                {/* Indicador de "digitando..." */}
                 {isLoading && (
                   <div className="flex justify-start">
                     <div className="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg shadow-md rounded-bl-none flex items-center">
@@ -159,7 +185,6 @@ export default function ChatBot() {
                     </div>
                   </div>
                 )}
-                {/* Elemento invisível para marcar o final das mensagens */}
                 <div ref={messagesEndRef} />
               </div>
 
@@ -170,10 +195,10 @@ export default function ChatBot() {
                   onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
                   className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
                   placeholder="Digite sua mensagem..."
-                  disabled={isLoading} 
+                  disabled={isLoading}
                 />
                 <button
-                  onClick={sendMessage}
+                  onClick={() => sendMessage()}
                   className="bg-indigo-600 text-white p-3 rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200"
                   disabled={isLoading}
                 >
@@ -187,7 +212,6 @@ export default function ChatBot() {
         </div>
       </div>
 
-      {/* Estilos CSS para a animação de onda e "digitando" */}
       <style dangerouslySetInnerHTML={{
         __html: `
           @keyframes pulse-wave {
@@ -205,7 +229,6 @@ export default function ChatBot() {
             animation: pulse-wave 3s ease-in-out infinite;
           }
 
-          /* Estilos para o indicador de "digitando..." */
           .typing-dots span {
             opacity: 0;
             animation: blink-dots 1.5s infinite linear;

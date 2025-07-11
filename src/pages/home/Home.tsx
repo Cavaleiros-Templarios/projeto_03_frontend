@@ -13,6 +13,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import type Cliente from '../../models/Cliente';
 import type Oportunidade from '../../models/Oportunidade';
 import ChatBot from '../../components/chatbot/ChatBot';
+import { useNavigate } from 'react-router-dom';
 
 interface DashboardData {
   totalClientes: number;
@@ -26,6 +27,7 @@ interface DashboardData {
 
 const Home: React.FC = () => {
   const { usuario, handleLogout } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [dashboardData, setDashboardData] = useState<DashboardData>({
     totalClientes: 0,
     totalOportunidades: 0,
@@ -53,11 +55,9 @@ const Home: React.FC = () => {
         }
       };
 
-      // Buscar clientes
       let listaClientes: Cliente[] = [];
       await buscar('/clientes', (setListaClientes: Cliente[]) => { listaClientes = setListaClientes; }, header);
 
-      // Buscar oportunidades
       let listaOportunidades: Oportunidade[] = [];
       await buscar('/oportunidades', (setListaOportunidades: Oportunidade[]) => { listaOportunidades = setListaOportunidades; }, header);
 
@@ -73,13 +73,12 @@ const Home: React.FC = () => {
         valorTotal,
         oportunidadesAbertas,
         oportunidadesFechadas,
-        clientesRecentes: listaClientes.slice(0, 3), // Pegar os 3 clientes mais recentes
-        oportunidadesRecentes: listaOportunidades.slice(0, 3) // Pegar as 3 oportunidades mais recentes
+        clientesRecentes: listaClientes.slice(0, 3),
+        oportunidadesRecentes: listaOportunidades.slice(0, 3)
       });
 
     } catch (error) {
       console.error('Erro ao carregar dados do dashboard:', error);
-      // Tratar erro, talvez redirecionar para login se for erro de autenticação
     } finally {
       setLoading(false);
     }
@@ -87,7 +86,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     carregarDadosDashboard();
-  }, [token]); // Recarregar dados se o token mudar
+  }, [token]);
 
   const dadosGrafico = [
     { mes: 'Jan', vendas: 45000 },
@@ -101,7 +100,7 @@ const Home: React.FC = () => {
   const dadosPizza = [
     { name: 'Fechadas', value: dashboardData.oportunidadesFechadas, color: '#10B981' },
     { name: 'Em Andamento', value: dashboardData.oportunidadesAbertas, color: '#3B82F6' },
-    { name: 'Propostas', value: dashboardData.totalOportunidades - dashboardData.oportunidadesAbertas - dashboardData.oportunidadesFechadas, color: '#F59E0B' } // Calcular propostas restantes
+    { name: 'Propostas', value: dashboardData.totalOportunidades - dashboardData.oportunidadesAbertas - dashboardData.oportunidadesFechadas, color: '#F59E0B' }
   ];
 
   const formatarMoeda = (valor: number) => {
@@ -109,6 +108,10 @@ const Home: React.FC = () => {
       style: 'currency',
       currency: 'BRL'
     }).format(valor);
+  };
+
+  const handleViewPlans = () => {
+    navigate('/planos');
   };
 
   if (loading) {
@@ -121,11 +124,51 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Seção de Apresentação do CRM */}
+      <div className="w-full bg-blue-600 py-10 shadow-inner">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Changed text-left to text-center for the welcome text container */}
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-white mb-4">
+              Bem-vindo ao <span className="text-indigo-100">Kavio CRM</span>
+            </h1>
+            {/* Added mx-auto for the paragraph to center it */}
+            <p className="text-lg text-blue-100 max-w-2xl mx-auto">
+              Um sistema completo de gestão de relacionamento com o cliente para impulsionar suas vendas e organizar suas oportunidades.
+            </p>
+            {/* Added justify-center to center the button container */}
+            <div className="mt-6 flex justify-center space-x-4">
+              <button
+                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-400 transition-colors"
+                onClick={handleViewPlans}
+              >
+                Ver Planos
+              </button>
+            </div>
+          </div>
+
+          {/* Video Section on the right */}
+          <div className="w-1/2 flex justify-end">
+            <div className="w-3/4 max-w-md rounded-xl shadow-lg overflow-hidden">
+              <video
+                className="w-full h-auto opacity-90"
+                autoPlay
+                loop
+                muted
+                src="https://ik.imagekit.io/dmzx7is6a/Kavio/20250710_1451_Lively_Office_Workspace_simple_compose_01jztqcj3tftttrr773sp4t9fj.mp4?updatedAt=1752244664399"
+              >
+                Seu navegador não suporta a tag de vídeo.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Cards de Estatísticas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {/* Card 1 */}
           <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
@@ -143,6 +186,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
+          {/* Card 2 */}
           <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
@@ -160,6 +204,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
+          {/* Card 3 */}
           <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-yellow-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
@@ -177,13 +222,13 @@ const Home: React.FC = () => {
             </div>
           </div>
 
+          {/* Card 4 */}
           <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Taxa de Conversão</p>
                 <p className="text-3xl font-bold text-gray-900">68%</p>
               </div>
-  
             </div>
             <div className="mt-4 flex items-center text-sm">
               <ArrowUpRight size={16} className="text-green-500 mr-1" />
@@ -231,10 +276,7 @@ const Home: React.FC = () => {
             <div className="flex justify-center space-x-4 mt-4">
               {dadosPizza.map((item, index) => (
                 <div key={index} className="flex items-center">
-                  <div 
-                    className="w-3 h-3 rounded-full mr-2" 
-                    style={{ backgroundColor: item.color }}
-                  ></div>
+                  <div className="w-3 h-3 rounded-full mr-2" style={{ backgroundColor: item.color }}></div>
                   <span className="text-sm text-gray-600">{item.name}</span>
                 </div>
               ))}
@@ -278,7 +320,7 @@ const Home: React.FC = () => {
                     <p className="text-xs text-gray-500">{formatarMoeda(oportunidade.valor)}</p>
                   </div>
                   <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                    oportunidade.status === 'Fechado' 
+                    oportunidade.status === 'Fechado'
                       ? 'bg-green-100 text-green-800'
                       : oportunidade.status === 'Em Andamento'
                       ? 'bg-blue-100 text-blue-800'
@@ -286,7 +328,6 @@ const Home: React.FC = () => {
                   }`}>
                     {oportunidade.status}
                   </span>
-
                   <ChatBot />
                 </div>
               ))}
@@ -299,5 +340,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
-
