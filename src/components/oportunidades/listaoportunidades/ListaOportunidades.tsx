@@ -73,7 +73,7 @@ function ListaOportunidades() {
                             <div className="w-px h-8 bg-slate-200"></div>
                             <div className="text-center">
                                 <div className="text-2xl font-bold text-emerald-600">
-                                    {oportunidades.filter(op => op.status?.toLowerCase().includes('ativo')).length}
+                                    {oportunidades.filter(op => op.status?.toLowerCase().includes('')).length}
                                 </div>
                                 <div className="text-xs text-slate-500 uppercase tracking-wide">Ativas</div>
                             </div>

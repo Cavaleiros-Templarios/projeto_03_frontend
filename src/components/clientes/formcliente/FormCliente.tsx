@@ -13,16 +13,15 @@ interface FormClienteProps {
 function FormCliente({ onSuccess }: FormClienteProps) {
 
     const navigate = useNavigate()
+
     const [isLoading, setIsLoading] = useState<boolean>(false)
+
     const [cliente, setCliente] = useState<Cliente>({} as Cliente)
 
     const { usuario, handleLogout } = useContext(AuthContext)
     const token = usuario.token
     
     const { id } = useParams<{ id: string }>()
-
-    // Determina se é edição baseado no clienteParaEditar ou no id da URL
-    const isEdicao = clienteParaEditar !== null || id !== undefined;
 
     async function buscarClientePorId(id: string) {
         try {
@@ -37,29 +36,23 @@ function FormCliente({ onSuccess }: FormClienteProps) {
     }
 
     useEffect(() => {
-        // Só verifica token se não for modal
-        if (!isModal && token === "") {
-            ToastAlerta("Você precisa estar logado!", 'info')
-            navigate("/")
-        }
-    }, [token, isModal, navigate])
+            if (token === "") {
+                ToastAlerta("Você precisa estar logado!", 'info')
+                navigate("/")
+            }
+        },[token])
 
     useEffect(() => {
-        if (clienteParaEditar) {
-            console.log('Preenchendo formulário com cliente para editar:', clienteParaEditar);
-            setCliente(clienteParaEditar)
-        } else if (id !== undefined) {
-            console.log('Buscando cliente por ID:', id);
+        if (id !== undefined) {
             buscarClientePorId(id)
         } else {
-            console.log('Novo cliente - limpando formulário');
             setCliente({
                 id: undefined,
-                nome: "",
-                email: ""
+                nome:"",
+                email:""
             })
         }
-    }, [id, clienteParaEditar])
+    }, [id])
 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setCliente({
@@ -70,14 +63,11 @@ function FormCliente({ onSuccess }: FormClienteProps) {
 
     async function gerarNovoCliente(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log('Iniciando cadastro/atualização de cliente');
         setIsLoading(true)
 
-        try {
-            if (isEdicao) {
-                console.log('Atualizando cliente existente');
-                const clienteId = clienteParaEditar?.id || id;
-                await atualizar(`/clientes/${clienteId}`, cliente, setCliente, {
+        if(id !== undefined){
+            try {
+                await atualizar("/clientes", cliente, setCliente, {
                     headers: { Authorization: token }
                 })
                 ToastAlerta("O Cliente foi atualizado com sucesso!", 'sucesso')
@@ -122,7 +112,7 @@ function FormCliente({ onSuccess }: FormClienteProps) {
     function retornar(){
         navigate("/clientes")
     }
-
+    
     return (
         <div className="w-full max-w-md mx-auto">
             {/* Título removido quando usado no modal */}
@@ -212,4 +202,3 @@ function FormCliente({ onSuccess }: FormClienteProps) {
 }
 
 export default FormCliente;
-

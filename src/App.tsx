@@ -16,6 +16,7 @@ import FormOportunidade from "./components/oportunidades/formoportunidade/FormOp
 import DeletarOportunidade from "./components/oportunidades/deletaroportunidade/DeletarOpotunidade";
 import Sobre from "./pages/sobre/Sobre";
 import Perfil from "./pages/perfil/Perfil";
+import Planos from "./pages/planos/Planos";
 
 function App() {
   
