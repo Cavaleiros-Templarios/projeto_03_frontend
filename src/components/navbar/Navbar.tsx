@@ -74,6 +74,9 @@ function Navbar() {
                         <Link to="/projetos" className="block py-2 hover:text-green-900 transition-colors duration-300" onClick={toggleMenu}>
                             Projeto
                         </Link>
+                        <Link to="/planos" className="block py-2 hover:text-green-900 transition-colors duration-300" onClick={toggleMenu}>
+                            Planos
+                        </Link>
                         <Link to="/sobre" className="block py-2 hover:text-green-900 transition-colors duration-300" onClick={toggleMenu}>
                             Sobre
                         </Link>
