@@ -44,18 +44,22 @@ function Cadastro() {
 
   async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
-    if(confirmaSenha === usuario.senha && usuario.senha.length >= 8){
+  
+    setIsLoading(true)
+  
+    if (confirmaSenha === usuario.senha && usuario.senha.length >= 8) {
       try {
-
-        await cadastrarUsuario('/usuarios/cadastrar', usuario, setUsuario)
+        
+        const { id, ...usuarioSemId } = usuario
+  
+        await cadastrarUsuario('/usuarios/cadastrar', usuarioSemId, setUsuario)
         ToastAlerta("Usuário cadastrado com sucesso!", 'sucesso')
-
-      } catch (error) {
+  
+      } catch (error: any) {
         ToastAlerta("Erro ao cadastrar o usuário", 'erro')
-        console.error(error)
+  
       }
-    }else{
+    } else {
       ToastAlerta("Dados do usuário inconsistentes! Verifique as informações do cadastro.", 'erro')
       setUsuario({
         ...usuario,
@@ -63,7 +67,7 @@ function Cadastro() {
       })
       setConfirmaSenha("")
     }
-
+  
     setIsLoading(false)
   }
 
