@@ -51,13 +51,13 @@ function DeletarCliente() {
             await deletar(`/clientes/${id}`, {
                 headers: { Authorization: token }
             })
-            ToastAlerta("Cliente excluido com sucesso!", 'sucesso')
+            ToastAlerta("Cliente excluído com sucesso!", 'sucesso')
 
         } catch (error: any) {
-            if(error.toString.includes("401")){
+            if(error.toString().includes("401")){
                 handleLogout()
             } else {
-                ToastAlerta("Erro ao excluir o cliente!", 'info')
+                ToastAlerta("Erro ao excluir o cliente!", 'erro')
                 console.error(error)
             }
         }
@@ -71,30 +71,34 @@ function DeletarCliente() {
     }
 
     return (
-        <div className='container w-1/3 mx-auto'>
-            <h1 className='text-4xl text-center my-4'>Deletar cliente</h1>
-            <p className='text-center font-semibold mb-4'>
+        <div className='container mx-auto p-4 md:p-8 max-w-lg'>
+            <h1 className='text-4xl text-center font-bold mb-6 text-gray-800'>Deletar Cliente</h1>
+            <p className='text-center text-lg mb-6 text-gray-600'>
                 Você tem certeza de que deseja apagar o cliente a seguir?</p>
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
+            <div className='border border-gray-300 rounded-xl overflow-hidden shadow-lg bg-white'>
                 <header 
-                    className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
-                    Cliente
+                    className='py-3 px-6 bg-[#005de3] text-white font-semibold text-2xl'>
+                    Detalhes do Cliente
                 </header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>Nome: {cliente.nome}</p>
-                <div className="flex">
+                <p className='p-8 text-3xl font-medium text-gray-800 bg-gray-50 h-full'>
+                    <span className="font-bold">Nome:</span> {cliente.nome}
+                </p>
+                <div className="flex justify-evenly border-t border-gray-300">
                     <button 
-                        className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
+                        className='w-full py-3 text-lg font-semibold text-red-700 bg-red-100 
+                                   hover:bg-red-200 transition duration-300 ease-in-out'
                         onClick={retornar}
                     >
                         Não
                     </button>
                     <button 
-                        className='w-full text-slate-100 bg-indigo-400 
-                                   hover:bg-indigo-600 flex items-center justify-center'
+                        className='w-full py-3 text-lg font-semibold text-white bg-[#005de3] 
+                                   hover:bg-[#004ac9] transition duration-300 ease-in-out 
+                                   flex items-center justify-center space-x-2'
                         onClick={deletarCliente}
                     >
                         {isLoading ? (
-                            <RotatingLines strokeColor="white"strokeWidth="5"animationDuration="0.75"width="24"visible={true}/> 
+                            <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} /> 
                             ) : ( 
                             <span>Sim</span>
                         )}
