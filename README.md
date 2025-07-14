@@ -1,69 +1,115 @@
-# React + TypeScript + Vite
+# Kavio CRM - Sistema de Gestão de Relacionamento com o Cliente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<br />
 
-Currently, two official plugins are available:
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/5c30c61a-ec3b-46e7-ad3d-cf8c4d997a22" alt="Logo" width="300" height="300" />
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 📌 Objetivos do Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Facilitar a gestão de oportunidades e clientes  
+- Exibir planos e serviços disponíveis  
+- Oferecer navegação simples e fluida  
+- Integrar chatbot para suporte e atendimento simulado  
+- Aplicar boas práticas em desenvolvimento React e Tailwind CSS
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tecnologias Utilizadas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 💻 Frontend
+
+- React  
+- TypeScript  
+- Tailwind CSS  
+- JavaScript  
+- Vite  
+- VSCode  
+
+### 🖥️ Backend & Ferramentas de Desenvolvimento  
+
+- API simulada (mock)  
+- Git e GitHub  
+- Insomnia (testes API)  
+
+---
+
+## 📂 Componentes Implementados
+
+### 🧭 Navbar
+
+- Links para **Oportunidades**, **Clientes**, **Planos** e **Sobre**  
+- Ícones de perfil e logout  
+- Design minimalista e responsivo  
+
+📸 **Print da Navbar:**  
+> ![Navbar]([COLE_AQUI_O_LINK_DA_IMAGEM](https://github.com/user-attachments/assets/5d947303-1914-44fd-9d1a-29961a2e4715))
+
+---
+
+### 💬 Chatbot Integrado
+
+- Componente fixado no canto inferior direito  
+- Atendimento simulado com respostas automáticas  
+- Interação rápida com opções pré-definidas  
+
+📸 **Print do Chatbot:**  
+> ![Chatbot](https://github.com/user-attachments/assets/470a2595-c49d-4f64-9056-5a34a2f35518)
+
+---
+
+📸 **Print da Página Oportunidades:**  
+> ![Oportunidades](https://github.com/user-attachments/assets/ebe2170a-7fe4-4732-a363-ae6c257d30ef)
+
+📸 **Print da Página Clientes:**  
+> ![Clientes](https://github.com/user-attachments/assets/b8d0377a-30ab-4ba8-add7-da8efa83b3ee)
+
+📸 **Print da Página Planos:**  
+> ![Planos](https://github.com/user-attachments/assets/a965f5ca-cdba-4e7c-a765-9acf15ead79d)
+
+📸 **Print da Página Login:**  
+> ![Login](https://github.com/user-attachments/assets/7a573474-eccb-436e-b831-1fd9273be601)
+
+📸 **Print da Página Sobre:**  
+> ![Sobre](https://github.com/user-attachments/assets/bd3ac2b6-b177-4500-8b7b-6e2573e40c73)
+
+📸 **Print do Footer:**  
+> ![Footer](https://github.com/user-attachments/assets/bd3ac2b6-b177-4500-8b7b-6e2573e40c73)
+
+---
+
+## ▶️ Como rodar o projeto localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/Cavaleiros-Templarios/projeto_03_frontend.git
+
+# Acesse a pasta do projeto
+cd projeto_03_frontend
+
+# Instale as dependências
+npm install
+
+# Rode o projeto
+npm start
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📬 Contato
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Desenvolvido por:
+
+- [**Wesley Lima**](https://github.com/Wezzlim)  
+- [**Alex Ikezili**](https://github.com/alexikezili)  
+- [**Gustavo Brassaroto Lira**](https://github.com/Brassaroto)  
+- [**Cristiano Forner**](https://github.com/cristianoforner)  
+- [**Fabricio Vicente Soares**](https://github.com/Fabriciovics)  
+- [**Pedro Henrique**](https://github.com/phccoelho)  
+- [**Thiago Tasseli**](https://github.com/tasselii)
+
+---
+
+
