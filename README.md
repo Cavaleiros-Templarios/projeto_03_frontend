@@ -84,7 +84,7 @@
 > ![Sobre](https://github.com/user-attachments/assets/bd3ac2b6-b177-4500-8b7b-6e2573e40c73)
 
 📸 **Print do Footer:**  
-> ![Footer](https://github.com/user-attachments/assets/bd3ac2b6-b177-4500-8b7b-6e2573e40c73)
+> ![Footer](https://github.com/user-attachments/assets/f52c3c4e-3ac2-474b-873c-bb4317803070)
 
 ---
 
