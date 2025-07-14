@@ -8,7 +8,7 @@
 
 ## 🌐 Acesse o Kavio CRM Online
 
-👉 <a href="https://kavio.netlify.app" target="_blank">Clique aqui para acessar o site</a>
+👉 <a href="https://kavio.netlify.app" target="_blank">Clique aqui para acessar o sistema</a>
 
 <br />
 
