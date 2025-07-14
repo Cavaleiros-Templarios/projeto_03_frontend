@@ -6,37 +6,6 @@ interface CardClientesProps {
 }
 
 function CardClientes({ cliente }: CardClientesProps) {
-    
-    const handleEdit = () => {
-        // Lógica para editar cliente
-        console.log('Editando cliente:', cliente.id);
-    };
-
-    const handleDelete = () => {
-        // Lógica para deletar cliente
-        console.log('Deletando cliente:', cliente.id);
-    };
-
-    const handleViewOportunidades = () => {
-        // Lógica para ver oportunidades do cliente
-        console.log('Visualizando oportunidades do cliente:', cliente.id);
-    };
-
-    // Função para contar oportunidades do cliente
-    const getOportunidadesCount = () => {
-        if (!cliente.oportunidade) return 0;
-        return cliente.oportunidade.length;
-    };
-
-    // Função para obter as iniciais do nome
-    const getInitials = (nome: string) => {
-        return nome
-            .split(' ')
-            .map(word => word.charAt(0))
-            .join('')
-            .toUpperCase()
-            .slice(0, 2);
-    };
 
     return (
         <div className='bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 
