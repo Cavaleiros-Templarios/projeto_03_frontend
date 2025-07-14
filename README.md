@@ -6,6 +6,14 @@
   <img src="https://github.com/user-attachments/assets/5c30c61a-ec3b-46e7-ad3d-cf8c4d997a22" alt="Logo" width="300" height="300" />
 </div>
 
+## 🌐 Acesse o Kavio CRM Online
+
+👉 <a href="https://kavio.netlify.app" rel="nofollow noopener noreferrer" target="_blank">Clique aqui para acessar o site</a>
+
+<br />
+
+---
+
 
 ## 📌 Objetivos do Projeto
 
