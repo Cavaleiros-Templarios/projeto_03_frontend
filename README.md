@@ -67,7 +67,6 @@ Desenvolvido por:
 - [**Gustavo Brassaroto Lira**](https://github.com/Brassaroto)
 - [**Cristiano Forner**](https://github.com/cristianoforner)
 - [**Fabricio Vicente Soares**](https://github.com/Fabriciovics)
-- [**Marcos Meneses**](https://github.com/MarcosvMeneses)
 - [**Pedro Henrique**](https://github.com/phccoelho)
 - [**Thiago Tasseli**](https://github.com/tasselii)
 
