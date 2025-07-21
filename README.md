@@ -53,7 +53,7 @@
 - Design minimalista e responsivo  
 
 📸 **Print da Navbar:**  
-> ![Navbar]([COLE_AQUI_O_LINK_DA_IMAGEM](https://github.com/user-attachments/assets/5d947303-1914-44fd-9d1a-29961a2e4715))
+![Navbar](https://github.com/user-attachments/assets/9e9d297b-04ce-4bdb-ad32-5b133e940a71)
 
 ---
 
