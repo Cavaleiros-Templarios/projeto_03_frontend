@@ -17,6 +17,7 @@ import DeletarOportunidade from "./components/oportunidades/deletaroportunidade/
 import Sobre from "./pages/sobre/Sobre";
 import Perfil from "./pages/perfil/Perfil";
 import Planos from "./pages/planos/Planos";
+import Inicio from "./pages/inicio/Inicio";
 
 function App() {
   
@@ -44,6 +45,7 @@ function App() {
               <Route path="/deletaroportunidade/:id" element={<DeletarOportunidade />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/perfil" element={<Perfil />} />
+              <Route path="/inicio" element={<Inicio />} />
             </Routes>
           </div>
           <Footer />

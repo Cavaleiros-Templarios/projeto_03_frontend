@@ -3,12 +3,12 @@ import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
 function Footer() {
   return (
     <div className="
-        bg-[var(--cor-texto-claro)]
+        
         py-6
         md:py-9
         lg:py-12
         text-center 
-        shadow-md">
+        shadow-md border-t border-gray-200">
         <p className="
         text-sm
         text-blue-900

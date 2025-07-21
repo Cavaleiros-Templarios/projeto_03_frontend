@@ -3,7 +3,7 @@
 :root {
   /* === CORES PRINCIPAIS === */
   --cor-primaria: #006CFF; /* Azul - usada em botões, destaques e elementos interativos */
-  --cor-primaria-hover: #0e2d5d; /* Azul mais escuro para hover em botões e links */
+ --cor-primaria-hover : #0e2d5d; /* Azul mais escuro para hover em botões e links */
   --cor-primaria-fundo: #f8f4f4; /*  Cor para o background da página */
 
   --cor-secundaria: #1e9fff; /* Azul um pouco mais claro (exemplo) - pode ser usada para fundo ou header */
@@ -31,6 +31,8 @@
   --cor-sucesso: #4CAF50; /* Verde - confirmações e ações bem-sucedidas */
   --cor-erro: #f44336; /* Vermelho - mensagens de erro */
   --cor-aviso: #FFC107; /* Amarelo - alertas e avisos */
+  --color-primary-accent: 0 42 255; /* RGB values without parentheses */
+  --color-star-yellow: 255 215 0; /* RGB values for #FFD700 */
 }
 
 body {
