@@ -9,10 +9,10 @@ function CardClientes({ cliente }: CardClientesProps) {
 
     return (
         <div className='bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 
-                        border border-gray-100 overflow-hidden group hover:border-[#005de3]/20'>
+                        border border-[#202022] overflow-hidden group hover:border-[#005de3]/20'>
             
             {/* Header do Card */}
-            <header className='bg-gradient-to-r from-[#005de3] to-[#0066ff] px-6 py-4'>
+            <header className='bg-gradient-to-r from-[#0f5bc7] to-[#0a3679] px-6 py-4'>
                 <div className='flex items-center justify-between'>
                     <h3 className='text-white font-bold text-lg'>Cliente</h3>
                     <div className='w-8 h-8 bg-white/20 rounded-full flex items-center justify-center'>
@@ -25,13 +25,13 @@ function CardClientes({ cliente }: CardClientesProps) {
             </header>
             
             {/* Conteúdo do Card */}
-            <div className='p-6 bg-white flex-1 space-y-4'>
+            <div className='p-6 bg-[#18181B] flex-1 space-y-4'>
                 <div className='space-y-3'>
                     <div className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#005de3] rounded-full mt-2 flex-shrink-0'></div>
                         <div className='flex-1'>
-                            <p className='text-sm font-medium text-gray-500 uppercase tracking-wide'>Nome</p>
-                            <p className='text-lg font-semibold text-gray-900 mt-1 break-words'>
+                            <p className='text-sm font-medium text-gray-200 uppercase tracking-wide'>Nome</p>
+                            <p className='text-lg font-semibold text-white mt-1 break-words'>
                                 {cliente.nome || 'Não informado'}
                             </p>
                         </div>
@@ -40,8 +40,8 @@ function CardClientes({ cliente }: CardClientesProps) {
                     <div className='flex items-start space-x-3'>
                         <div className='w-2 h-2 bg-[#005de3] rounded-full mt-2 flex-shrink-0'></div>
                         <div className='flex-1'>
-                            <p className='text-sm font-medium text-gray-500 uppercase tracking-wide'>E-mail</p>
-                            <p className='text-lg font-semibold text-gray-900 mt-1 break-words'>
+                            <p className='text-sm font-medium text-gray-200 uppercase tracking-wide'>E-mail</p>
+                            <p className='text-lg font-semibold text-white mt-1 break-words'>
                                 {cliente.email || 'Não informado'}
                             </p>
                         </div>
@@ -50,10 +50,10 @@ function CardClientes({ cliente }: CardClientesProps) {
             </div>
             
             {/* Botões de Ação */}
-            <div className="flex border-t border-gray-100">
+            <div className="flex border-t border-[#18181B]">
                 <Link 
                     to={`/editarcliente/${cliente.id}`} 
-                    className='flex-1 bg-[#005de3] hover:bg-[#004bb8] text-white 
+                    className='flex-1 bg-[#2579ee] hover:bg-[#0a3679] text-white 
                               transition-all duration-200 group/edit'
                 >
                     <button className='w-full py-3 px-4 flex items-center justify-center space-x-2 

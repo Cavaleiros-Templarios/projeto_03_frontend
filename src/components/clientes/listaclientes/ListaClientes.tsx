@@ -52,14 +52,14 @@ function ListaClientes() {
     }, [token, navigate])
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-[#0E0E11]">
             {/* Header Section */}
-            <div className="bg-white shadow-sm border-b border-gray-200">
+            <div className="bg-[#0E0E11] shadow-sm border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center py-6">
                         <div>
-                            <h1 className="text-3xl font-bold text-gray-900">Clientes</h1>
-                            <p className="text-gray-600 mt-1">Gerencie seus clientes de forma eficiente</p>
+                            <h1 className="text-3xl font-bold text-[#1E9FFF]">Clientes</h1>
+                            <p className="text-gray-300 mt-1">Gerencie seus clientes de forma eficiente</p>
                         </div>
                         <div className="flex items-center space-x-4">
                             <ModalCliente onClienteAdded={handleClienteAdded} />
@@ -108,23 +108,23 @@ function ListaClientes() {
                 {(!isLoading && clientes.length > 0) && (
                     <div>
                         {/* Stats Bar */}
-                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+                        <div className="bg-[#18181B] rounded-lg shadow-sm border border-[#27272b] p-6 mb-8">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-6">
                                     <div className="text-center">
                                         <div className="text-2xl font-bold text-[#005de3]">
                                             {clientes.length}
                                         </div>
-                                        <div className="text-sm text-gray-600">
+                                        <div className="text-sm text-gray-300">
                                             {clientes.length === 1 ? 'Cliente' : 'Clientes'}
                                         </div>
                                     </div>
                                     <div className="h-8 w-px bg-gray-200"></div>
-                                    <div className="text-sm text-gray-600">
+                                    <div className="text-sm text-gray-300">
                                         Total de registros na base de dados
                                     </div>
                                 </div>
-                                <div className="text-sm text-gray-500">
+                                <div className="text-sm text-gray-300">
                                     Atualizado agora
                                 </div>
                             </div>

@@ -2,15 +2,16 @@ import React from 'react';
 
 // Paleta de cores azul consistente com a identidade Kavio CRM
 const COLORS = {
-  primary: "#005de3",        // Azul principal
+  primary: "#1E9FFF",        // Azul principal
   primaryHover: "#003d9e",   // Azul escuro para hover
-  background: "#f8fafc",     // Fundo claro
-  cardBackground: "#ffffff", // Branco para cards
+  background: "#0E0E11",     // Fundo escuro
+  cardBackground: "#18181B", // Preto para cards
   accent1: "#0052cc",        // Azul médio escuro
   accent2: "#0066ff",        // Azul médio
-  accent3: "#3b82f6",        // Azul claro
+  accent3: "#D9D9D9",        // Cinza
   accent4: "#60a5fa",        // Azul muito claro
   accent5: "#93c5fd",        // Azul pastel
+  accent6: "#1E9FFF",        // Azul Claro
   success: "#10b981",        // Verde sucesso
   warning: "#f59e0b",        // Laranja para avisos
   danger: "#ef4444",         // Vermelho para deletar
@@ -181,7 +182,7 @@ const TechnologiesSection: React.FC = () => {
                   </h4>
 
                   {/* Descrição */}
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed">
                     {tech.description}
                   </p>
                 </div>
@@ -301,15 +302,15 @@ const Sobre: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                <div className="space-y-6 text-lg text-white leading-relaxed">
                   <p className="text-xl">
                     O <span style={{ color: COLORS.primary, fontWeight: 'bold' }}>Kavio CRM</span> é uma plataforma moderna e intuitiva para gestão de relacionamento com clientes.
                   </p>
                   <p>
-                    Funciona de forma <span style={{ color: COLORS.accent2, fontWeight: 'semibold' }}>rápida e clara</span>, com estrutura pronta para crescer junto com sua empresa.
+                    Funciona de forma <span style={{ color: COLORS.accent2, fontWeight: 'bold' }}>rápida e clara</span>, com estrutura pronta para crescer junto com sua empresa.
                   </p>
                   <p>
-                    Nosso projeto nasceu da necessidade de <span style={{ color: COLORS.accent1, fontWeight: 'semibold' }}>otimizar e modernizar</span> os processos de vendas e atendimento, colocando o cliente no centro da estratégia.
+                    Nosso projeto nasceu da necessidade de <span style={{ color: COLORS.accent1, fontWeight: 'bold' }}>otimizar e modernizar</span> os processos de vendas e atendimento, colocando o cliente no centro da estratégia.
                   </p>
                 </div>
 
@@ -332,7 +333,7 @@ const Sobre: React.FC = () => {
                       >
                         {feature.title}
                       </h4>
-                      <p className="text-gray-600 text-sm">{feature.desc}</p>
+                      <p className="text-white text-sm">{feature.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -356,7 +357,7 @@ const Sobre: React.FC = () => {
                   >
                     Equipe de Desenvolvimento
                   </h2>
-                  <p className="text-gray-600 text-xl mt-2">
+                  <p className="text-white text-xl mt-2">
                     Profissionais dedicados ao seu sucesso
                   </p>
                 </div>
@@ -400,7 +401,7 @@ const Sobre: React.FC = () => {
                       <div className="relative mb-6">
                         <div
                           className="w-32 h-32 rounded-full mx-auto overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-500"
-                          style={{ border: `4px solid ${COLORS.accent3}30` }}
+                          style={{ border: `4px solid ${COLORS.accent6}` }}
                         >
                           {member.avatar ? (
                             <img
@@ -425,7 +426,7 @@ const Sobre: React.FC = () => {
                       </div>
 
                       {/* Informações */}
-                      <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:scale-105 transition-transform duration-300">
+                      <h3 className="text-xl font-bold text-gray-300 mb-2 group-hover:scale-105 transition-transform duration-300">
                         {member.name}
                       </h3>
                       <p
