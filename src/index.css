@@ -1,43 +1,58 @@
 @import "tailwindcss";
 
+/* === TEMA PADRÃO CLARO === */
 :root {
   /* === CORES PRINCIPAIS === */
-  --cor-primaria: #006CFF; /* Azul - usada em botões, destaques e elementos interativos */
- --cor-primaria-hover : #0e2d5d; /* Azul mais escuro para hover em botões e links */
-  --cor-primaria-fundo: #f8f4f4; /*  Cor para o background da página */
+  --cor-primaria: #006CFF;
+  --cor-primaria-hover: #0e2d5d;
+  --cor-primaria-fundo: #f8f4f4;
 
-  --cor-secundaria: #1e9fff; /* Azul um pouco mais claro (exemplo) - pode ser usada para fundo ou header */
-  --cor-secundaria-hover: #0853c5; /* Hover da cor secundária */
+  --cor-secundaria: #1e9fff;
+  --cor-secundaria-hover: #0853c5;
 
   /* === TEXTO === */
-
-  --cor-texto-principal: #1f1f1f; /* Cor padrão para textos - quase preto */
-  --cor-texto-claro: #ffffff; /* Usada em textos sobre fundo escuro */
-  --cor-texto-secundario: #6b7280; /* Cinza - para textos auxiliares ou placeholders */
+  --cor-texto-principal: #1f1f1f;
+  --cor-texto-secundario: #6b7280;
+  --cor-texto-claro: #ffffff;
 
   /* === FUNDOS === */
+  --cor-fundo-claro: #f9f9f9;
+  --cor-fundo-card: #ffffff;
+  --cor-fundo-escuro: #1a1a1a;
 
-  --cor-fundo-claro: #f9f9f9; /* Fundo geral da página */
-  --cor-fundo-escuro: #1a1a1a; /* Para rodapé ou seções destacadas */
-  --cor-fundo-card: #ffffff; /* Para cartões, boxes e containers */
+  /* === BORDAS E SOMBRAS === */
+  --cor-borda: #dcdcdc;
+  --cor-sombra: rgba(0, 0, 0, 0.1);
 
-  /* === BORDAS E DIVISORES === */
+  /* === ESTADOS === */
+  --cor-sucesso: #4CAF50;
+  --cor-erro: #f44336;
+  --cor-aviso: #FFC107;
+  --cor-info: #06b6d4;
 
-  --cor-borda: #dcdcdc; /* Cinza claro - usado em bordas e divisores */
-  --cor-sombra: rgba(0, 0, 0, 0.1); /* Sombra suave para elevação */
-
-  /* === FEEDBACK VISUAL === */
-
-  --cor-sucesso: #4CAF50; /* Verde - confirmações e ações bem-sucedidas */
-  --cor-erro: #f44336; /* Vermelho - mensagens de erro */
-  --cor-aviso: #FFC107; /* Amarelo - alertas e avisos */
-  --color-primary-accent: 0 42 255; /* RGB values without parentheses */
-  --color-star-yellow: 255 215 0; /* RGB values for #FFD700 */
+  /* === OUTRAS === */
+  --color-primary-accent: 0 42 255;          /* para usar bg-[rgb(var(--color-primary-accent))] */
+  --color-star-yellow: 255 215 0;            /* amarelo estrela */
 }
 
+/* === DARK MODE para Tailwind V4 === */
+@custom-variant dark (&:where(.dark, .dark *)); 
+
+/* === TEMA ESCURO === */
+.dark {
+  --cor-primaria-fundo: #1a1a1a;
+  --cor-texto-principal: #ffffff;
+  --cor-fundo-card: #2c2c2c;
+  --cor-borda: #3a3a3a;
+  --cor-sombra: rgba(255, 255, 255, 0.05);
+}
+
+/* === ESTILOS GERAIS DO BODY === */
 body {
   background-color: var(--cor-primaria-fundo);
-  -webkit-font-smoothing: antialiased; 
+  color: var(--cor-texto-principal);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }

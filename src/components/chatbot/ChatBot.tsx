@@ -12,7 +12,10 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [size, setSize] = useState({ width: 340, height: 380 });
   const [isResizing, setIsResizing] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Novo estado para controlar o carregamento
+  const [isLoading, setIsLoading] = useState(false);
+
+  // No need for a local darkMode state in this component if styling is purely via CSS variables and Tailwind classes.
+  // The component will automatically react to the 'dark' class on the HTML root.
 
   const chatRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -106,9 +109,10 @@ export default function ChatBot() {
       <div className="fixed bottom-4 right-4 z-50 font-sans">
         <div
           ref={chatRef}
-          className={`bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 relative transition-all duration-300 ease-in-out ${
-            !open ? 'animate-pulse-wave' : ''
-          }`}
+          className={`rounded-lg shadow-lg overflow-hidden border relative transition-all duration-300 ease-in-out
+                      bg-[var(--cor-primaria-fundo)] border-cor-borda shadow-cor-sombra ${ 
+                        !open ? 'animate-pulse-wave' : ''
+                      }`}
           style={{
             width: open ? size.width : 80,
             height: open ? size.height : 80,
@@ -125,32 +129,39 @@ export default function ChatBot() {
           )}
 
           <div
-            className={`bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-center font-semibold cursor-pointer flex items-center justify-center transition-all duration-300 ${
-              open ? 'py-3 text-lg space-x-2' : 'h-full text-2xl'
-            }`}
+            className={`text-center font-semibold cursor-pointer flex items-center justify-center transition-all duration-300
+                        text-cor-texto-claro ${ // Text color over gradient
+                          open ? 'py-3 text-lg space-x-2' : 'h-full text-2xl'
+                        }`}
+            style={{ 
+              backgroundImage: `linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria))`,
+              color: "var(--cor-texto-claro)" // Ensure text is clear over gradient
+            }}
             onClick={() => setOpen(!open)}
           >
             {/* Robot Image Icon */}
             <img
               src="https://ik.imagekit.io/dmzx7is6a/image-removebg-preview%20(3).png?updatedAt=1752247690323"
               alt="Robot Icon"
-              className="h-8 w-8" // Adjust size as needed
+              className="h-8 w-8"
             />
             {open && <span>Kavio Assistente</span>}
           </div>
 
           {open && (
-            <div className="flex flex-col bg-gray-50" style={{ height: size.height - 60 }}>
-              <div className="flex-1 p-4 overflow-y-auto space-y-3 text-sm scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+            <div className="flex flex-col bg-cor-fundo-claro" style={{ height: size.height - 60 }}> {/* Background color */}
+              <div className="flex-1 p-4 overflow-y-auto space-y-3 text-sm text-cor-texto-principal // Text color
+                          scrollbar-thin scrollbar-thumb-cor-borda scrollbar-track-cor-fundo-claro"> {/* Custom scrollbar classes */}
                 {/* Pre-defined questions displayed as clickable buttons */}
                 {messages.length === 0 && ( // Only show if no messages exchanged yet
                   <div className="flex flex-col gap-2 mb-4">
-                    <p className="text-gray-600 text-center">Perguntas Frequentes:</p>
+                    <p className="text-center text-cor-texto-secundario">Perguntas Frequentes:</p>
                     {predefinedQuestions.map((question, index) => (
                       <button
                         key={index}
                         onClick={() => handlePredefinedQuestionClick(question)}
-                        className="bg-blue-100 text-blue-800 border border-blue-200 px-3 py-2 rounded-lg text-left hover:bg-blue-200 transition-colors duration-200 text-sm"
+                        className="border border-cor-info px-3 py-2 rounded-lg text-left transition-colors duration-200 text-sm
+                                   bg-cor-info text-cor-texto-claro hover:opacity-80" // Use variables for button and hover
                       >
                         {question}
                       </button>
@@ -165,8 +176,8 @@ export default function ChatBot() {
                   >
                     <div
                       className={`max-w-[75%] px-4 py-2 rounded-lg shadow-md ${m.role === 'user'
-                        ? 'bg-blue-500 text-white rounded-br-none'
-                        : 'bg-gray-300 text-gray-800 rounded-bl-none'}
+                        ? 'rounded-br-none bg-cor-primaria text-cor-texto-claro' // User message colors
+                        : 'rounded-bl-none bg-cor-fundo-card text-cor-texto-principal'} // Assistant message colors
                       `}
                     >
                       {m.content}
@@ -175,7 +186,8 @@ export default function ChatBot() {
                 ))}
                 {isLoading && (
                   <div className="flex justify-start">
-                    <div className="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg shadow-md rounded-bl-none flex items-center">
+                    <div className="px-4 py-2 rounded-lg shadow-md rounded-bl-none flex items-center
+                                bg-cor-fundo-card text-cor-texto-principal"> {/* Typing indicator colors */}
                       <span>Digitando</span>
                       <span className="typing-dots ml-1">
                         <span>.</span>
@@ -188,18 +200,23 @@ export default function ChatBot() {
                 <div ref={messagesEndRef} />
               </div>
 
-              <div className="border-t border-gray-200 p-3 flex items-center gap-2 bg-white">
+              <div className="border-t border-cor-borda p-3 flex items-center gap-2 bg-cor-fundo-card"> {/* Border and background colors */}
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-                  className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
+                  className="flex-1 border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 transition duration-200
+                             border-cor-borda bg-cor-fundo-claro text-cor-texto-principal
+                             focus:ring-cor-primaria" // Focus ring color
                   placeholder="Digite sua mensagem..."
                   disabled={isLoading}
                 />
                 <button
                   onClick={() => sendMessage()}
-                  className="bg-indigo-600 text-white p-3 rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition duration-200"
+                  className="p-3 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition duration-200
+                             bg-cor-primaria text-cor-texto-claro focus:ring-cor-primaria" // Button colors and focus ring
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-primaria-hover)'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-primaria)'}
                   disabled={isLoading}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -214,14 +231,39 @@ export default function ChatBot() {
 
       <style dangerouslySetInnerHTML={{
         __html: `
+          /* Custom scrollbar styles using your variables */
+          .scrollbar-thin::-webkit-scrollbar {
+            width: 8px; /* For vertical scrollbar */
+            height: 8px; /* For horizontal scrollbar */
+          }
+
+          .scrollbar-thin::-webkit-scrollbar-track {
+            background: var(--scrollbar-track-color, var(--cor-fundo-claro)); /* Fallback to cor-fundo-claro */
+            border-radius: 10px;
+          }
+
+          .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb-color, var(--cor-borda)); /* Fallback to cor-borda */
+            border-radius: 10px;
+            border: 2px solid var(--scrollbar-track-color, var(--cor-fundo-claro)); /* Add border for better visibility */
+          }
+
+          .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background: var(--cor-secundaria); /* Darker on hover */
+          }
+          /* End custom scrollbar styles */
+
+
           @keyframes pulse-wave {
             0%, 100% {
               transform: scale(1);
-              box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.3);
+              /* Use CSS variable for color from index.css for the pulse */
+              /* The opacity part (0.3) needs to be controlled by directly changing the rgba in index.css if you want less transparency */
+              box-shadow: 0 0 0 0 rgba(var(--color-primary-accent), 0.3); 
             }
             50% {
               transform: scale(1.02);
-              box-shadow: 0 0 0 8px rgba(139, 69, 19, 0);
+              box-shadow: 0 0 0 8px rgba(var(--color-primary-accent), 0);
             }
           }
           

@@ -64,7 +64,7 @@ function ModalOportunidade({
                 trigger={
                     triggerButton ? (
                         <button 
-                            className='inline-flex items-center px-6 py-3  bg-gradient-to-b from-[#167cf1] to-[#005de3] hover:from-indigo-700 to-[#005de3]  text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                            className='inline-flex items-center px-6 py-3  bg-gradient-to-b from-[#167cf1] hover:from-indigo-700 to-[#005de3]  text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
                             onClick={handleOpenModal}>
                             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
