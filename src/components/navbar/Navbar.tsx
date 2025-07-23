@@ -74,21 +74,23 @@ function Navbar() {
             <Link to="/sobre" className="hover:text-[#003d9e] hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
               Sobre
             </Link>
-
-            {/* Botão de tema escuro/claro */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              title="Alternar tema"
-            >
-              {darkMode ? <Sun size={24} className="text-yellow-500" /> : <Moon size={24} className="text-gray-600" />}
-            </button>
-
             <Link to="/perfil" className="hover:text-[#003d9e] hover:bg-blue-50 p-2 rounded-lg transition-all duration-200 ease-in-out">
               <UserIcon size={24} />
             </Link>
             <button onClick={logout} className="hover:text-[#003d9e] hover:bg-blue-50 p-2 rounded-lg transition-all duration-200 ease-in-out">
               <SignOut size={24} />
+            </button>
+            {/* Botão de tema escuro/claro */}
+            <button
+              onClick={toggleDarkMode}
+              className="p-3 rounded-full border-2 border-gray-300 dark:border-gray-700 hover:border-yellow-500 hover:bg-yellow-50 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out shadow-md focus:outline-none"
+              title="Alternar tema"
+            >
+              {darkMode ? (
+                <Sun size={24} className="text-yellow-400 transition-colors duration-300" />
+              ) : (
+                <Moon size={24} className="text-gray-600 dark:text-gray-300 transition-colors duration-300" />
+              )}
             </button>
           </div>
         </div>
