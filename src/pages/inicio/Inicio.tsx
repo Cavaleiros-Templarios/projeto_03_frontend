@@ -113,17 +113,22 @@ const Inicio = () => {
               Comece Grátis
             </Link>
 
-            {/* Dark Mode Toggle Button */}
+            {/* Botão de tema escuro/claro */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 pr-10 rounded-full text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+              className="relative p-2 w-16 h-8 flex items-center justify-between rounded-full bg-gray-200 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg focus:outline-none"
               title="Alternar tema"
             >
-              {darkMode ? (
-                <Sun size={24} className="text-yellow-500" />
-              ) : (
-                <Moon size={24} className="text-gray-600" />
-              )}
+              {/* Ícone da lua (escuro) */}
+              <Moon size={20} className={`absolute left-1 transition-all duration-300 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`} />
+
+              {/* Ícone do sol (claro) */}
+              <Sun size={20} className={`absolute right-1 transition-all duration-300 ${darkMode ? 'text-[#eaee13]' : 'text-gray-400'}`} />
+
+              {/* Fundo que se move com a transição */}
+              <div
+                className={`absolute w-8 h-8 rounded-full bg-[#1E9FFF] transition-all duration-300 ease-in-out opacity-80 ${darkMode ? 'left-0' : 'right-0'}`}
+              />
             </button>
           </div>
         </div>
