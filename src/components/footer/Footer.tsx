@@ -3,15 +3,18 @@ import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react"
 function Footer() {
   return (
     <div className="
-        
+      bg-[#FFFFFF]
+      dark:bg-[#0d0d0f]
         py-6
         md:py-9
         lg:py-12
         text-center 
-        shadow-md border-t border-gray-200">
+        shadow-[0_-4px_12px_rgba(0,0,0,0.05)]
+        dark:shadow-[-0_-4px_12px_rgba(255,255,255,0.06)]
+        border-t border-[#dadada] dark:border-[#4b4b4b]">
         <p className="
         text-sm
-        text-blue-900
+        text-[#1E9FFF]
         ">
         © 2025 Feito por Cavaleiros Templários SA. Todos os direitos reservados.
         </p>

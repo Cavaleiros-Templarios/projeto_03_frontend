@@ -60,12 +60,12 @@ const Planos: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-[#0E0E11] dark:to-[#0E0E11] text-gray-900 dark:text-gray-100">
       <div className="max-w-screen-2xl mx-auto px-5 sm:px-6 lg:px-4 py-8">
 
         {/* Toggle de Planos Mensais/Anuais */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-2 flex items-center space-x-1">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-2 flex items-center space-x-1">
             <button
               onClick={() => setIsAnnual(false)}
               className={`px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 ${
@@ -94,9 +94,9 @@ const Planos: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {/* Plano Básico */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">Básico</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Básico</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-base">Ideal para pequenas empresas e startups que buscam organização inicial.</p>
 
               <div className="mb-6">
@@ -106,7 +106,7 @@ const Planos: React.FC = () => {
                 </p>
                 {isAnnual && (
                   <div className="mt-2">
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-sm text-gray-600 dark:text-white">
                       R${getCurrentPrice('basico').monthlyEquivalent}/mês
                     </p>
                     <p className="text-sm text-green-600 dark:text-green-400 font-semibold">
@@ -130,10 +130,10 @@ const Planos: React.FC = () => {
           </div>
 
           {/* Plano Profissional */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative">
             <div className="absolute top-0 right-0 -mt-3 -mr-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase rotate-3 dark:bg-green-700">Mais Popular</div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">Profissional</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Profissional</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-base">Para empresas em crescimento que precisam de mais recursos e automação.</p>
 
               <div className="mb-6">
@@ -169,9 +169,9 @@ const Planos: React.FC = () => {
           </div>
 
           {/* Plano Empresarial */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-purple-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-purple-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">Empresarial</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Empresarial</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-base">Solução completa para grandes equipes e corporações com necessidades complexas.</p>
 
               <div className="mb-6">
@@ -207,9 +207,9 @@ const Planos: React.FC = () => {
           </div>
 
           {/* Plano Ultimate */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-red-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 flex flex-col justify-between border-t-8 border-red-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">Ultimate</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Ultimate</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4 text-base">A solução mais completa para grandes corporações e necessidades específicas.</p>
 
               <div className="mb-6">

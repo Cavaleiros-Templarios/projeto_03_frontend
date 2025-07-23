@@ -68,7 +68,7 @@ function ListaOportunidades() {
 
     return (
         // Main container background and text colors adapt to theme. Added pt-16 for Navbar clearance.
-        <div className="min-h-screen pt-16"
+        <div className="min-h-screen "
              style={{ backgroundColor: "var(--cor-primaria-fundo)", color: "var(--cor-texto-principal)" }}>
             {/* Header Section */}
             <div className="shadow-sm border-b"
@@ -185,12 +185,12 @@ function ListaOportunidades() {
                                             style={{
                                                 borderColor: "var(--cor-borda)",
                                                 backgroundColor: "var(--cor-fundo-claro)",
-                                                color: "var(--cor-texto-principal)"
+                                                color: "var(--cor-texto-preto)"
                                             }}
-                                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-borda)'}
+                                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-fundo-cinza)'}
                                             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-fundo-claro)'}>
                                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                             style={{ color: "var(--cor-texto-principal)" }}>
+                                             style={{ color: "var(--cor-texto-preto)" }}>
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                                         </svg>
                                         Filtrar
@@ -199,12 +199,12 @@ function ListaOportunidades() {
                                             style={{
                                                 borderColor: "var(--cor-borda)",
                                                 backgroundColor: "var(--cor-fundo-claro)",
-                                                color: "var(--cor-texto-principal)"
+                                                color: "var(--cor-texto-preto)"
                                             }}
-                                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-borda)'}
+                                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-fundo-cinza)'}
                                             onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--cor-fundo-claro)'}>
                                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                             style={{ color: "var(--cor-texto-principal)" }}>
+                                             style={{ color: "var(--cor-texto-preto)" }}>
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
                                         </svg>
                                         Ordenar

@@ -187,7 +187,7 @@ function FormCliente({ onSuccess }: FormClienteProps) {
                         style={{
                             borderColor: "var(--cor-borda)",
                             backgroundColor: "var(--cor-fundo-claro)",
-                            color: "var(--cor-texto-principal)",
+                            color: "var(--cor-texto-preto)",
                         }}
                         value={cliente.email || ""}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}

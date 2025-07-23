@@ -74,7 +74,7 @@ function Perfil() {
           </label>
           <div className="p-2 rounded-md shadow-inner"
                style={{ backgroundColor: darkMode ? "var(--cor-fundo-claro)" : "rgba(255,255,255,0.9)", // Adjusted to use cor-fundo-claro for dark mode and a subtle white for light
-                        color: "var(--cor-texto-principal)" }}> {/* Text color adapts */}
+                        color:  "var(--cor-texto-dark-secundario)"}}> {/* Text color adapts */}
             {usuario.usuario}
           </div>
         </div>

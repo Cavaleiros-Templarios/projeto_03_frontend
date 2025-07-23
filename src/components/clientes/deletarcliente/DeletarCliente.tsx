@@ -72,12 +72,12 @@ function DeletarCliente() {
 
     return (
         <div className='container mx-auto p-4 md:p-8 max-w-lg'>
-            <h1 className='text-4xl text-center font-bold mb-6 text-gray-800'>Deletar Cliente</h1>
-            <p className='text-center text-lg mb-6 text-gray-600'>
+            <h1 className='text-4xl text-center font-bold mb-6 text-gray-800 dark:text-white'>Deletar Cliente</h1>
+            <p className='text-center text-lg mb-6 text-gray-600 dark:text-gray-200'>
                 Você tem certeza de que deseja apagar o cliente a seguir?</p>
-            <div className='border border-gray-300 rounded-xl overflow-hidden shadow-lg bg-white'>
+            <div className='border border-gray-300 rounded-xl overflow-hidden shadow-lg bg-white '>
                 <header 
-                    className='py-3 px-6 bg-[#005de3] text-white font-semibold text-2xl'>
+                    className='py-3 px-6 bg-[#005de3] dark:bg-[#1e78ff] text-white font-semibold text-2xl'>
                     Detalhes do Cliente
                 </header>
                 <p className='p-8 text-3xl font-medium text-gray-800 bg-gray-50 h-full'>
