@@ -14,11 +14,16 @@
   --cor-texto-principal: #1f1f1f;
   --cor-texto-secundario: #6b7280;
   --cor-texto-claro: #ffffff;
+  --cor-texto-dark-secundario:#161616;
+  --cor-texto-branco: #ffffff;
+  --cor-texto-preto:#000000;
+  --cor-texto-cinza-claro:#e4e4e4;
 
   /* === FUNDOS === */
   --cor-fundo-claro: #f9f9f9;
   --cor-fundo-card: #ffffff;
   --cor-fundo-escuro: #1a1a1a;
+  --cor-fundo-cinza:#bebebe;
 
   /* === BORDAS E SOMBRAS === */
   --cor-borda: #dcdcdc;
@@ -40,11 +45,14 @@
 
 /* === TEMA ESCURO === */
 .dark {
-  --cor-primaria-fundo: #1a1a1a;
+  --cor-primaria-fundo: #0E0E11;
   --cor-texto-principal: #ffffff;
-  --cor-fundo-card: #2c2c2c;
+  --cor-texto-dark: #161616;
+  --cor-texto-preto:#000000;
+  --cor-fundo-card: #18181B;
   --cor-borda: #3a3a3a;
   --cor-sombra: rgba(255, 255, 255, 0.05);
+  --cor-primaria-hover: #1E9FFF;
 }
 
 /* === ESTILOS GERAIS DO BODY === */

@@ -32,7 +32,17 @@ function Login() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen bg-gray-900 text-white font-sans">
+    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen bg-gray-900 text-white font-sans relative">
+
+      <button
+        onClick={() => navigate('/')}
+        className="fixed top-10 right-205 z-50 flex items-center gap-2 bg-gray-200 text-black border border-white/30 hover:scale-110 px-5 py-2 rounded-full shadow-lg backdrop-blur-md transition-all duration-300 group"
+      >
+        <span className="transform transition-transform duration-300 group-hover:-translate-x-0.5">
+          ←
+        </span>
+        Início
+      </button>
 
       {/* VÍDEO À ESQUERDA */}
       <div className="hidden lg:block w-full h-full relative overflow-hidden">

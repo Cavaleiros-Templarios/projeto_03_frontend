@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes} from "react-router-dom"
-import { AuthProvider } from "./contexts/AuthContext"
-import { ToastContainer } from "react-toastify"
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from "./components/footer/Footer";
@@ -19,40 +19,46 @@ import Perfil from "./pages/perfil/Perfil";
 import Planos from "./pages/planos/Planos";
 import Inicio from "./pages/inicio/Inicio";
 
-function App() {
-  
+function AppRoutes() {
+  const location = useLocation();
+  const hideFooterRoutes = ["/inicio", "/login", "/cadastro"];
 
   return (
     <>
-    <AuthProvider>
-        <ToastContainer />
-        <BrowserRouter>
-          <Navbar />
-          <div className="min-h-[80vh]">
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/cadastro" element={<Cadastro />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/clientes" element={<ListaClientes />} />
-              <Route path="/planos" element={<Planos />} />
-              <Route path="/cadastrarcliente" element={<FormCliente />} />
-              <Route path="/editarcliente/:id" element={<FormCliente />} />
-              <Route path="/deletarcliente/:id" element={<DeletarCliente />} />
-              <Route path="/oportunidades" element={<ListaOportunidades />} />
-              <Route path="/cadastraroportunidade" element={<FormOportunidade />} />
-              <Route path="/editaroportunidade/:id" element={<FormOportunidade />} />
-              <Route path="/deletaroportunidade/:id" element={<DeletarOportunidade />} />
-              <Route path="/sobre" element={<Sobre />} />
-              <Route path="/perfil" element={<Perfil />} />
-              <Route path="/inicio" element={<Inicio />} />
-            </Routes>
-          </div>
-          <Footer />
-        </BrowserRouter>
-    </AuthProvider>
+      <ToastContainer />
+      <Navbar />
+      <div className="min-h-[80vh]">
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/clientes" element={<ListaClientes />} />
+          <Route path="/planos" element={<Planos />} />
+          <Route path="/cadastrarcliente" element={<FormCliente />} />
+          <Route path="/editarcliente/:id" element={<FormCliente />} />
+          <Route path="/deletarcliente/:id" element={<DeletarCliente />} />
+          <Route path="/oportunidades" element={<ListaOportunidades />} />
+          <Route path="/cadastraroportunidade" element={<FormOportunidade />} />
+          <Route path="/editaroportunidade/:id" element={<FormOportunidade />} />
+          <Route path="/deletaroportunidade/:id" element={<DeletarOportunidade />} />
+          <Route path="/sobre" element={<Sobre />} />
+          <Route path="/perfil" element={<Perfil />} />
+        </Routes>
+      </div>
+      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}
+
+export default App;

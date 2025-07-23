@@ -74,7 +74,7 @@ function ListaClientes() {
 
     return (
         // Main container background and text colors adapt to theme. Added pt-16 for Navbar clearance.
-        <div className="min-h-screen pt-16"
+        <div className="min-h-screen "
              style={{ backgroundColor: "var(--cor-primaria-fundo)", color: "var(--cor-texto-principal)" }}>
             {/* Header Section */}
             <div className="shadow-sm border-b"
@@ -85,7 +85,7 @@ function ListaClientes() {
                             <h1 className="text-3xl font-bold"
                                 style={{ color: "var(--cor-texto-principal)" }}>Clientes</h1>
                             <p className="mt-1"
-                               style={{ color: "var(--cor-texto-secundario)" }}>Gerencie seus clientes de forma eficiente</p>
+                               style={{ color: darkMode ? "var(--cor-texto-principal)" : "var(--cor-texto-branco)" }}>Gerencie seus clientes de forma eficiente</p>
                         </div>
                         <div className="flex items-center space-x-4">
                             <ModalCliente onClienteAdded={handleClienteAdded} />
@@ -126,7 +126,7 @@ function ListaClientes() {
                             </svg>
                         </div>
                         <h3 className="text-xl font-semibold mb-2"
-                            style={{ color: "var(--cor-texto-principal)" }}>
+                            style={{ color:  "var(--cor-texto-principal)" }}>
                             Nenhum cliente encontrado
                         </h3>
                         <p className="mb-6 max-w-md mx-auto"
@@ -151,16 +151,16 @@ function ListaClientes() {
                                             {clientes.length}
                                         </div>
                                         <div className="text-sm"
-                                             style={{ color: "var(--cor-texto-secundario)" }}>
+                                             style={{ color: "var(--cor-texto-principal)" }}>
                                             {clientes.length === 1 ? 'Cliente' : 'Clientes'}
                                         </div>
                                     </div>
                                     <div className="h-8 w-px" style={{ backgroundColor: "var(--cor-borda)" }}></div> {/* Border color adapts */}
-                                    <div className="text-sm" style={{ color: "var(--cor-texto-secundario)" }}>
+                                    <div className="text-sm" style={{ color: "var(--cor-texto-principal)" }}>
                                         Total de registros na base de dados
                                     </div>
                                 </div>
-                                <div className="text-sm" style={{ color: "var(--cor-texto-secundario)" }}>
+                                <div className="text-sm" style={{ color: "var(--cor-texto-principal)" }}>
                                     Atualizado agora
                                 </div>
                             </div>
