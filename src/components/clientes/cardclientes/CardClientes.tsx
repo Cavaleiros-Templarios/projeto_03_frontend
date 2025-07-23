@@ -1,11 +1,28 @@
 import { Link } from "react-router-dom";
 import type Cliente from "../../../models/Cliente";
+import { useEffect, useState } from "react";
 
 interface CardClientesProps {
     cliente: Cliente;
 }
 
 function CardClientes({ cliente }: CardClientesProps) {
+
+    // Local state to track dark mode, mirroring the global theme
+      const [darkMode, setDarkMode] = useState<boolean>(() => {
+        return localStorage.getItem('theme') === 'dark';
+      });
+    
+      // Effect to listen for changes in localStorage 'theme'
+      useEffect(() => {
+        const handleStorageChange = () => {
+          setDarkMode(localStorage.getItem('theme') === 'dark');
+        };
+        window.addEventListener('storage', handleStorageChange);
+        return () => {
+          window.removeEventListener('storage', handleStorageChange);
+        };
+      }, []);
 
     return (
         // Main card container adapts background, border, and shadow using ONLY variables
@@ -86,15 +103,15 @@ function CardClientes({ cliente }: CardClientesProps) {
                     className='flex-1 transition-all duration-200 group/delete'
                     style={{
                         backgroundColor: "var(--cor-fundo-claro)", // Use var for background
-                        color: "var(--cor-texto-principal)" // Use var for text color
+                        color:  "var(--cor-texto-preto)"   // Use var for text color
                     }}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = 'var(--cor-erro)';
-                        e.currentTarget.style.color = 'var(--cor-texto-claro)';
+                        e.currentTarget.style.color = 'var(--cor-texto-escuro)';
                     }}
                     onMouseLeave={(e) => {
                         e.currentTarget.style.backgroundColor = 'var(--cor-fundo-claro)';
-                        e.currentTarget.style.color = 'var(--cor-texto-principal)';
+                        e.currentTarget.style.color = 'var(--cor-texto-preto)';
                     }}
                 >
                     <button className='w-full py-3 px-4 flex items-center justify-center space-x-2 font-medium text-sm'>

@@ -189,24 +189,32 @@ function FormCliente({
                         />
                     </div>
 
-                    {/* Campo Email */}
-                    <div className="space-y-2">
-                        <label
-                            htmlFor="email"
-                            className="block text-sm font-bold text-slate-700"
-                        >
-                            E-mail do Cliente *
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="Digite o e-mail"
-                            name='email'
-                            className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 placeholder-slate-400 text-slate-900 font-medium"
-                            value={cliente.email || ""}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
-                            required
-                        />
-                    </div>
+                {/* Campo Email */}
+                <div className="space-y-2">
+                    <label
+                        htmlFor="email"
+                        className="block text-sm font-semibold"
+                        style={{ color: "var(--cor-texto-principal)" }}
+                    >
+                        E-mail do Cliente
+                    </label>
+                    <input
+                        type="email"
+                        placeholder="Digite o e-mail"
+                        name='email'
+                        className="w-full px-4 py-3 border-2 rounded-lg transition-all duration-200 outline-none font-medium
+                                   placeholder-cor-texto-secundario text-cor-texto-principal
+                                   focus:border-cor-primaria focus:ring-2 focus:ring-cor-primaria focus:ring-opacity-20" // Replaced custom props with direct Tailwind classes
+                        style={{
+                            borderColor: "var(--cor-borda)",
+                            backgroundColor: "var(--cor-fundo-claro)",
+                            color: "var(--cor-texto-preto)",
+                        }}
+                        value={cliente.email || ""}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                        required
+                    />
+                </div>
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t-2 border-slate-100">

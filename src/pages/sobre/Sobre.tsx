@@ -58,7 +58,7 @@ const TechnologiesSection: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
       emoji: "🌱",
       description: "Framework Java para aplicações",
       category: "backend",
-    color: "var(--cor-primaria-hover)"
+      color: "var(--cor-primaria-hover)"
     },
     {
       name: "Node.js",
@@ -168,7 +168,7 @@ const TechnologiesSection: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
                   {/* Descrição */}
                   <p
                     className="text-sm leading-relaxed"
-                    style={{ color: "var(--cor-texto-secundario)" }}
+                    style={{ color: "var(--cor-texto-principaç)" }}
                   >
                     {tech.description}
                   </p>
@@ -321,10 +321,10 @@ const Sobre: React.FC = () => {
                     O <span style={{ color: "var(--cor-primaria)", fontWeight: 'bold' }}>Kavio CRM</span> é uma plataforma moderna e intuitiva para gestão de relacionamento com clientes.
                   </p>
                   <p>
-                    Funciona de forma <span style={{ color: "var(--cor-secundaria)", fontWeight: 'semibold' }}>rápida e clara</span>, com estrutura pronta para crescer junto com sua empresa.
+                    Funciona de forma <span style={{ color: "var(--cor-primaria-hover)", fontWeight: 'bold' }}>rápida e clara</span>, com estrutura pronta para crescer junto com sua empresa.
                   </p>
                   <p>
-                    Nosso projeto nasceu da necessidade de <span style={{ color: "var(--cor-primaria-hover)", fontWeight: 'semibold' }}>otimizar e modernizar</span> os processos de vendas e atendimento, colocando o cliente no centro da estratégia.
+                    Nosso projeto nasceu da necessidade de <span style={{ color: "var(--cor-primaria-hover)", fontWeight: 'bold' }}>otimizar e modernizar</span> os processos de vendas e atendimento, colocando o cliente no centro da estratégia.
                   </p>
                 </div>
 
@@ -350,7 +350,7 @@ const Sobre: React.FC = () => {
                       >
                         {feature.title}
                       </h4>
-                      <p className="text-sm" style={{ color: "var(--cor-texto-secundario)" }}>{feature.desc}</p>
+                      <p className="text-sm" style={{ color: "var(--cor-texto-principal)" }}>{feature.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -374,7 +374,7 @@ const Sobre: React.FC = () => {
                   >
                     Equipe de Desenvolvimento
                   </h2>
-                  <p className="text-xl mt-2" style={{ color: "var(--cor-texto-secundario)" }}>
+                  <p className="text-xl mt-2" style={{ color: "var(--cor-texto-principal)" }}>
                     Profissionais dedicados ao seu sucesso
                   </p>
                 </div>

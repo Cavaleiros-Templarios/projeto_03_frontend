@@ -115,7 +115,7 @@ function CardOportunidades({ oportunidade, onOportunidadeAtualizada }: CardOport
 
     return (
         <>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-slate-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 overflow-hidden group">
+            <div className="bg-white dark:bg-[#18181B] rounded-2xl shadow-lg border border-slate-200 dark:border-[#2a2a2b] hover:shadow-xl transition-all duration-300 overflow-hidden group">
                 {/* Header do Card */}
                 <div className="p-6 pb-4">
                     <div className="flex items-start justify-between mb-4">
@@ -148,7 +148,7 @@ function CardOportunidades({ oportunidade, onOportunidadeAtualizada }: CardOport
 
                     {/* Cliente */}
                     {oportunidade.cliente && (
-                        <div className="mb-4 p-3 bg-slate-50 dark:bg-gray-700 rounded-xl">
+                        <div className="mb-4 p-3 bg-slate-50 dark:bg-[#242427] rounded-xl">
                             <div className="flex items-center space-x-3">
                                 <div className="w-8 h-8 bg-indigo-100 dark:bg-indigo-800 rounded-lg flex items-center justify-center">
                                     <svg className="w-4 h-4 text-indigo-600 dark:text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -219,7 +219,7 @@ function CardOportunidades({ oportunidade, onOportunidadeAtualizada }: CardOport
                 </div>
 
                 {/* Footer do Card */}
-                <div className="px-6 py-4 bg-slate-50 dark:bg-gray-700 border-t border-slate-100 dark:border-gray-600">
+                <div className="px-6 py-4 bg-slate-50 dark:bg-[#242427] border-t border-slate-100 dark:border-gray-800">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2 text-xs text-slate-500 dark:text-gray-400">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

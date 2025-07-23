@@ -42,7 +42,7 @@ function Navbar() {
 
   if (usuario.token !== "") {
     component = (
-      <div className="w-full py-4 bg-white dark:bg-gray-900 shadow-lg border-b border-gray-100 dark:border-gray-800">
+      <div className="relative z-50 w-full py-4 bg-white dark:bg-[#0d0d0f] shadow-lg dark:shadow-[0_4px_16px_rgba(255,255,255,0.06)] border-b border-gray-100 dark:border-[#3b3b3b]">
         <div className="container flex flex-wrap items-center justify-between mx-auto px-6">
           {/* GRUPO ESQUERDO: Logo e Menu Mobile */}          
           <div className="flex items-center gap-4">
@@ -61,17 +61,17 @@ function Navbar() {
           </div>
 
           {/* GRUPO DIREITO: Links + ícones + botão tema */}
-          <div className="hidden md:flex items-center gap-6 text-[#005de3] font-semibold">
-            <Link to="/oportunidades" className="hover:text-[#003d9e] hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
+          <div className="hidden md:flex items-center gap-6 text-[#1E9FFF] font-semibold">
+            <Link to="/oportunidades" className="hover:text-[#003d9e] dark:hover:bg-[#0E0E11] px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
               Oportunidades
             </Link>
-            <Link to="/clientes" className="hover:text-[#003d9e] hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
+            <Link to="/clientes" className="hover:text-[#003d9e] dark:hover:bg-[#0E0E11] px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
               Clientes
             </Link>
-            <Link to="/planos" className="hover:text-[#003d9e] hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
+            <Link to="/planos" className="hover:text-[#003d9e] dark:hover:bg-[#0E0E11] px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
               Planos
             </Link>
-            <Link to="/sobre" className="hover:text-[#003d9e] hover:bg-blue-50 px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
+            <Link to="/sobre" className="hover:text-[#003d9e] dark:hover:bg-[#0E0E11] px-3 py-2 rounded-lg transition-all duration-200 ease-in-out">
               Sobre
             </Link>
 

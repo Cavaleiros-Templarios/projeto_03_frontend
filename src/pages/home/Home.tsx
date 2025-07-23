@@ -142,20 +142,20 @@ const Home: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-[#0E0E11] dark:to-[#0E0E11] flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 dark:border-blue-400"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-[#0E0E11] dark:to-[#0E0E11] text-gray-900 dark:text-gray-100">
       {/* Seção de Apresentação do CRM */}
-      <div className="w-full bg-blue-600 dark:bg-gray-700 py-10 shadow-inner">
+      <div className="w-full bg-blue-600 dark:bg-[#18181B] py-10 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-white dark:text-gray-100 mb-4">
-              Bem-vindo ao <span className="text-indigo-100 dark:text-blue-300">Kavio CRM</span>
+              Bem-vindo ao <span className="text-indigo-100 dark:text-blue-500">Kavio CRM</span>
             </h1>
             <p className="text-lg text-blue-100 dark:text-gray-300 max-w-2xl mx-auto">
               Um sistema completo de gestão de relacionamento com o cliente para impulsionar suas vendas e organizar suas oportunidades.
@@ -191,10 +191,10 @@ const Home: React.FC = () => {
         {/* Cards de Estatísticas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* Card 1 */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 border-l-4 border-blue-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Total de Clientes</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-200">Total de Clientes</p>
                 <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">{dashboardData.totalClientes}</p>
               </div>
               <div className="bg-blue-100 dark:bg-blue-800 p-3 rounded-full">
@@ -209,10 +209,10 @@ const Home: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 border-l-4 border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Oportunidades</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-200">Oportunidades</p>
                 <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">{dashboardData.totalOportunidades}</p>
               </div>
               <div className="bg-green-100 dark:bg-green-800 p-3 rounded-full">
@@ -227,10 +227,10 @@ const Home: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-yellow-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 border-l-4 border-yellow-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Valor Total</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-200">Valor Total</p>
                 <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">{formatarMoeda(dashboardData.valorTotal)}</p>
               </div>
               <div className="bg-yellow-100 dark:bg-yellow-800 p-3 rounded-full">
@@ -245,10 +245,10 @@ const Home: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-purple-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 border-l-4 border-purple-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-300">Taxa de Conversão</p>
+                <p className="text-sm font-medium text-gray-600 dark:text-gray-200">Taxa de Conversão</p>
                 <p className="text-3xl font-bold text-gray-900 dark:text-gray-100">68%</p>
               </div>
             </div>
@@ -263,7 +263,7 @@ const Home: React.FC = () => {
         {/* Gráficos */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Gráfico de Vendas */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Vendas por Mês</h3>
               <ChartBar size={20} className="text-gray-500 dark:text-gray-300" />
@@ -274,13 +274,13 @@ const Home: React.FC = () => {
                 <XAxis dataKey="mes" stroke={chartStrokeColor} /> {/* Use dynamic color */}
                 <YAxis stroke={chartStrokeColor} /> {/* Use dynamic color */}
                 <Tooltip formatter={(value: number) => formatarMoeda(value)} />
-                <Bar dataKey="vendas" fill="#3B82F6" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="vendas" fill="#41C1FF" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
           {/* Gráfico de Pizza */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Status das Oportunidades</h3>
               <ChartPie size={20} className="text-gray-500 dark:text-gray-300" />
@@ -309,13 +309,13 @@ const Home: React.FC = () => {
         {/* Listas Recentes */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Clientes Recentes */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Clientes Recentes</h3>
             <div className="space-y-3">
               {dashboardData.clientesRecentes.map((cliente) => (
-                <div key={cliente.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200">
+                <div key={cliente.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-[#242424] rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200">
                   <div className="flex items-center">
-                    <div className="w-10 h-10 bg-blue-500 dark:bg-blue-700 rounded-full flex items-center justify-center text-white font-semibold">
+                    <div className="w-10 h-10 bg-blue-500 dark:bg-[#41C1FF] rounded-full flex items-center justify-center text-white font-semibold">
                       {cliente.nome.charAt(0)}
                     </div>
                     <div className="ml-3">
@@ -332,11 +332,11 @@ const Home: React.FC = () => {
           </div>
 
           {/* Oportunidades Recentes */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-white dark:bg-[#18181B] rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Oportunidades Recentes</h3>
             <div className="space-y-3">
               {dashboardData.oportunidadesRecentes.map((oportunidade) => (
-                <div key={oportunidade.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200">
+                <div key={oportunidade.id} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-[#242424] rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200">
                   <div>
                     <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{oportunidade.titulo}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">{formatarMoeda(oportunidade.valor)}</p>
