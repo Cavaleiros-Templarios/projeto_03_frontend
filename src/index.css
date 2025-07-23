@@ -35,7 +35,7 @@
   --cor-aviso: #FFC107;
   --cor-info: #06b6d4;
 
-  /* === OUTRAS === */
+  /* === OUTROS === */
   --color-primary-accent: 0 42 255;          /* para usar bg-[rgb(var(--color-primary-accent))] */
   --color-star-yellow: 255 215 0;            /* amarelo estrela */
 }
