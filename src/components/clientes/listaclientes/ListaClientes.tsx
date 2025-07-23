@@ -74,7 +74,7 @@ function ListaClientes() {
 
     return (
         // Main container background and text colors adapt to theme. Added pt-16 for Navbar clearance.
-        <div className="min-h-screen pt-16"
+        <div className="min-h-screen pt-5"
              style={{ backgroundColor: "var(--cor-primaria-fundo)", color: "var(--cor-texto-principal)" }}>
             {/* Header Section */}
             <div className="shadow-sm border-b"

@@ -105,10 +105,18 @@ const Inicio = () => {
             <a href="#contact" className="text-gray-600 hover:text-gray-900 font-medium transition-colors dark:text-gray-300 dark:hover:text-white">Contato</a>
           </nav>
           <div className="flex items-center gap-4"> {/* Added gap for spacing */}
+            <Link to="/login" className="text-gray-600 hover:text-gray-900 font-medium mr-4 dark:text-gray-300 dark:hover:text-white">Entrar</Link>
+            <Link
+              to="/cadastro"
+              className="bg-[var(--cor-primaria)] text-[var(--cor-texto-claro)] hover:bg-[var(--cor-primaria-hover)] px-5 py-2 rounded-md text-sm font-medium transition-colors shadow-sm"
+            >
+              Comece Grátis
+            </Link>
+
             {/* Dark Mode Toggle Button */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 pr-10 rounded-full text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
               title="Alternar tema"
             >
               {darkMode ? (
@@ -117,14 +125,6 @@ const Inicio = () => {
                 <Moon size={24} className="text-gray-600" />
               )}
             </button>
-
-            <Link to="/login" className="text-gray-600 hover:text-gray-900 font-medium mr-4 dark:text-gray-300 dark:hover:text-white">Entrar</Link>
-            <Link
-              to="/cadastro"
-              className="bg-[var(--cor-primaria)] text-[var(--cor-texto-claro)] hover:bg-[var(--cor-primaria-hover)] px-5 py-2 rounded-md text-sm font-medium transition-colors shadow-sm"
-            >
-              Comece Grátis
-            </Link>
           </div>
         </div>
       </header>
@@ -141,7 +141,7 @@ const Inicio = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/cadastro"
-              className="px-8 py-4 rounded-lg text-lg font-bold transition-colors shadow-lg flex items-center justify-center bg-white text-gray-900 hover:bg-gray-200 dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700"
+              className="px-8 py-4 rounded-lg text-lg font-medium transition-colors shadow-lg flex items-center justify-center bg-white text-gray-900 hover:bg-gray-200 dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700"
             >
               Comece Grátis por 7 Dias <ArrowRight size={20} className="ml-2" />
             </Link>
@@ -194,7 +194,7 @@ const Inicio = () => {
           </p>
           <Link
             to="/cadastro"
-            className="bg-white text-gray-900 hover:bg-gray-200 px-8 py-4 rounded-lg text-lg font-bold transition-colors shadow-lg dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700"
+            className="bg-white text-gray-900 hover:bg-gray-200 px-8 py-4 rounded-lg text-lg transition-colors shadow-lg dark:bg-blue-600 dark:text-white dark:hover:bg-blue-700 font-medium"
           >
             Experimente Grátis Agora!
           </Link>

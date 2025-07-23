@@ -2,3 +2,7 @@
     border-radius: 1rem;
     padding-bottom: 2rem;
 }
+
+.popup-overlay {
+  background: transparent !important;
+}
