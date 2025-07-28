@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://chat-bot-production-9bd2.up.railway.app";
+const API_BASE_URL = "https://chat-bot-production-9bd2.up.railway.app";
 
 export async function sendMessageToChatbot(message: string): Promise<string> {
   try {
